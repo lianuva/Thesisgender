@@ -1,0 +1,32 @@
+{{ block title }}
+Please fill in the questionnaire below
+{{ endblock }}
+
+{{ block content }}
+
+{{ formfield 'age' }}
+{{ formfield 'gender' }}
+{{ formfield 'occupation' }}
+{{ formfield 'nationality' }}
+
+{{next_button}}
+<p id="Questionnaire"></p>
+
+<script>
+
+    let trialId = null;
+
+    
+
+
+    function sendClick(btn) {
+        liveSend({'choice': btn.value, 'trialId': trialId});
+    }
+
+    document.addEventListener("DOMContentLoaded", function (event) {
+        // send empty message to load initial question, or in case page is refreshed.
+        liveSend({});
+    });
+</script>
+
+{{ endblock }}
