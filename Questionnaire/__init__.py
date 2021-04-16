@@ -70,7 +70,7 @@ def read_csv():
     import csv
     import random
 
-    f = open('quiz/stimuli.csv', encoding='utf8')
+    f = open('Questionnaire/stimuli.csv', encoding='utf8')
     rows = list(csv.DictReader(f))
 
     random.shuffle(rows)
