@@ -45,5 +45,7 @@ def to_dict(trial: Trial):
 class Verbal(Page):
     form_model = 'player'
     form_fields = ['word']
+    timer_text = 'Time left to complete the task:'
+    timeout_seconds = 120
 
 page_sequence = [Verbal]

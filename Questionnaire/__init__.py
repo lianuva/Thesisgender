@@ -33,7 +33,9 @@ class Player(BasePlayer):
         )   
     occupation = models.StringField(label="Please enter your occupation (i.e. student/job):")
     nationality = models.StringField(label="Please enter your nationality:")
-    word = models.StringField(label="Enter the words you find in the word below")
+    mathslider = models.FloatField(blank= True)
+    verbalslider = models.FloatField(blank= True)
+
 
 def get_current_trial(player: Player):
     return Trial.filter(player=player, choice=None)[0]
@@ -78,8 +80,12 @@ class Demographics(Page):
        #     return {my_id: dict(status='finished')}
        #    return {my_id: dict(status='next_stimulus', stimulus=to_dict(get_current_trial(player)))}
 
-class Questionnaire(Page):
-    pass
+class Questionnairemath(Page):
+    form_model = 'player'
+    form_fields = ['verbalslider']
 
+class Questionnaireverbal(Page):
+    form_model = 'player'
+    form_fields = ['mathslider']
 
-page_sequence = [Demographics, Questionnaire]
+page_sequence = [Questionnairemath, Questionnaireverbal, Demographics]
