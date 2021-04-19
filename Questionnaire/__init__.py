@@ -14,15 +14,6 @@ class Constants(BaseConstants):
 class Subsession(BaseSubsession):
     pass
 
-
-def creating_session(subsession: Subsession):
-    for p in subsession.get_players():
-        stimuli = read_csv()
-        p.num_trials = len(stimuli)
-        #for stim in stimuli:
-        #   Trial.create(player=p, **stim)
-
-
 class Group(BaseGroup):
   pass
 
@@ -43,8 +34,6 @@ class Player(BasePlayer):
     occupation = models.StringField(label="Please enter your occupation (i.e. student/job):")
     nationality = models.StringField(label="Please enter your nationality:")
     word = models.StringField(label="Enter the words you find in the word below")
-    
-    
 
 def get_current_trial(player: Player):
     return Trial.filter(player=player, choice=None)[0]
@@ -65,26 +54,7 @@ def to_dict(trial: Trial):
         id=trial.id,
     )
 
-
-def read_csv():
-    import csv
-    import random
-
-    f = open('Questionnaire/stimuli.csv', encoding='utf8')
-    rows = list(csv.DictReader(f))
-
-    random.shuffle(rows)
-    return rows
-
-
 # PAGES
-class Welcome(Page):
-    pass
-
-class Verbal(Page):
-    form_model = 'player'
-    form_fields = ['word']
-
 class Demographics(Page):
     form_model = 'player'
     form_fields = ['age', 'gender', 'occupation','nationality']
@@ -111,11 +81,5 @@ class Demographics(Page):
 class Questionnaire(Page):
     pass
 
-class Results(Page):
-    @staticmethod
-    def vars_for_template(player: Player):
-        return dict(trials=Trial.filter(player=player))
-    pass
 
-
-page_sequence = [Welcome, Verbal, Demographics, Questionnaire, Results]
+page_sequence = [Demographics, Questionnaire]
