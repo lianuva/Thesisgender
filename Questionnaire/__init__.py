@@ -21,7 +21,10 @@ class Group(BaseGroup):
 class Player(BasePlayer):
     #num_completed = models.IntegerField(initial=0)
     #num_correct = models.IntegerField(initial=0)
-    #num_trials = models.IntegerField()
+    #num_trials = models.IntegerField() 
+
+    mathslider = models.FloatField(blank= True) 
+    verbalslider = models.FloatField(blank= True)    
     age = models.IntegerField(label="Please enter your age:")
     gender = models.IntegerField(
         choices=[
@@ -33,8 +36,7 @@ class Player(BasePlayer):
         )   
     occupation = models.StringField(label="Please enter your occupation (i.e. student/job):")
     nationality = models.StringField(label="Please enter your nationality:")
-    mathslider = models.FloatField(blank= True)
-    verbalslider = models.FloatField(blank= True)
+
 
 
 def get_current_trial(player: Player):
@@ -57,29 +59,6 @@ def to_dict(trial: Trial):
     )
 
 # PAGES
-class Demographics(Page):
-    form_model = 'player'
-    form_fields = ['age', 'gender', 'occupation','nationality']
-    
-    @staticmethod
-    def live_method(player: Player, data):
-        my_id = player.id_in_group
-
-       #if 'choice' in data:
-       #     if is_finished(player):
-       #         return
-       #     trial = get_current_trial(player)
-       #     if data['trialId'] != trial.id:
-       #         return
-       #     trial.choice = data['choice']
-       #     trial.is_correct = trial.choice == trial.solution
-       #     player.num_correct += int(trial.is_correct)
-       #    player.num_completed += 1
-
-       #if is_finished(player):
-       #     return {my_id: dict(status='finished')}
-       #    return {my_id: dict(status='next_stimulus', stimulus=to_dict(get_current_trial(player)))}
-
 class Questionnairemath(Page):
     form_model = 'player'
     form_fields = ['verbalslider']
@@ -87,5 +66,15 @@ class Questionnairemath(Page):
 class Questionnaireverbal(Page):
     form_model = 'player'
     form_fields = ['mathslider']
+
+class Demographics(Page):
+    form_model = 'player'
+    form_fields = ['age', 'gender', 'occupation', 'nationality']
+    
+    @staticmethod
+    def live_method(player: Player, data):
+        my_id = player.id_in_group
+
+    
 
 page_sequence = [Questionnairemath, Questionnaireverbal, Demographics]

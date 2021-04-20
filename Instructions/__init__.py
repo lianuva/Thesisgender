@@ -53,6 +53,6 @@ def to_dict(trial: Trial):
 
 # PAGES
 class Welcome(Page):
-    pass
+   pass
 
 page_sequence = [Welcome]

@@ -1,8 +1,13 @@
 from otree.api import *
+import pandas as pd
+from openpyxl import load_workbook
 
 doc = """
 Math
 """
+xl = pd.ExcelFile("Matrices.xlsx")
+df = xl.parse("Sheet1")
+a = print(df["ValueInside11"][0])
 
 
 class Constants(BaseConstants):
@@ -19,8 +24,9 @@ class Group(BaseGroup):
 
 
 class Player(BasePlayer):
-    pass
+   pass
     
+
 def get_current_trial(player: Player):
     return Trial.filter(player=player, choice=None)[0]
 
@@ -43,5 +49,12 @@ def to_dict(trial: Trial):
 # PAGES
 class Math(Page):
     pass
+
+@staticmethod
+def vars_for_template(player):
+    a = 3
+    return dict(
+        a=a,
+    ) 
 
 page_sequence = [Math]
