@@ -5,12 +5,14 @@
 {{ block content }}
 
     Math test
- 
+    <!DOCTYPE html>
+    <html>
+    <div id="buttons">
     <table class="table">
         <tr>
-            <td><button type="button">1</button></td>
-            <td><button type="button">2</button></td>
-            <td><button type="button">3</button></td>
+            <td><input type="button" id="button1" value="8"/></td>
+            <td><input type="button" id="button2" value="2"/></td>
+            <td><button id="button3">3</button></td>
         </tr>
         <tr>
             <td><button type="button">4</button></td>
@@ -28,8 +30,12 @@
             <td><button type="button">12</button></td>
         </tr>
     </table>
+    </div>
+
+    <script src="Math.js"></script>
 
 
+    </html>
 
     {{ next_button }}
 {{ endblock }}
