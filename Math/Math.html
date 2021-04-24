@@ -11,7 +11,7 @@
     
     <table class="table">
         <tr>
-            <td><button id="button1" type="button" value="{{n1}}">{{ n1 }}</button></td>
+            <td><button id="button1" type="button" value="{{n1}}" onclick="background='#696969'">{{ n1 }}</button></td>
             <td><button id="button2" type="button" value="{{n2}}">{{ n2 }}</button></td>
             <td><button id="button3" type="button" value="{{n3}}">{{ n3 }}</button></td>
         </tr>
@@ -33,59 +33,108 @@
     </table>
 
     <p id="text"></p>
+
+    <button id="reset" type="button">Reset</button>
+
+    <p></p>
+    
     
     </div>
     <!-- <script src="_static/Math.js"></script> -->
+    <script>
+               //get elements + eventlistener
+       let click1  = document.getElementById('button1').addEventListener("click", buttonfunction);
+       let click2  = document.getElementById('button2').addEventListener("click", buttonfunction);
+       let click3  = document.getElementById('button3').addEventListener("click", buttonfunction);
+       let click4  = document.getElementById('button4').addEventListener("click", buttonfunction);
+       let click5  = document.getElementById('button5').addEventListener("click", buttonfunction);
+       let click6  = document.getElementById('button6').addEventListener("click", buttonfunction);
+       let click7  = document.getElementById('button7').addEventListener("click", buttonfunction);
+       let click8  = document.getElementById('button8').addEventListener("click", buttonfunction);
+       let click9  = document.getElementById('button9').addEventListener("click", buttonfunction);
+       let click10 = document.getElementById('button10').addEventListener("click", buttonfunction);
+       let click11 = document.getElementById('button11').addEventListener("click", buttonfunction);
+       let click12 = document.getElementById('button12').addEventListener("click", buttonfunction);
+       let reset   = document.getElementById('reset').addEventListener("click", resetfunction);
 
-    <script> 
-        //get elements
-        let click1 = document.getElementById('button1');
-        let click2 = document.getElementById('button2');
-        let click3 = document.getElementById('button3');
-        let click4 = document.getElementById('button4');
-        let click5 = document.getElementById('button5');
-        let click6 = document.getElementById('button6');
-        let click7 = document.getElementById('button7');
-        let click8 = document.getElementById('button8');
-        let click9 = document.getElementById('button9');
-        let click10 = document.getElementById('button10');
-        let click11 = document.getElementById('button11');
-        let click12 = document.getElementById('button12');
+       //set vars
+       numberofclicks =0;
+       dSum =0;
 
-        //eventlistener
-        click1.addEventListener("click", buttonfunction)
-        click2.addEventListener("click", buttonfunction)
-        click3.addEventListener("click", buttonfunction)
-        click4.addEventListener("click", buttonfunction)
-        click5.addEventListener("click", buttonfunction)
-        click6.addEventListener("click", buttonfunction)
-        click7.addEventListener("click", buttonfunction)
-        click8.addEventListener("click", buttonfunction)
-        click9.addEventListener("click", buttonfunction)
-        click10.addEventListener("click", buttonfunction)
-        click11.addEventListener("click", buttonfunction)
-        click12.addEventListener("click", buttonfunction)
+       function buttonfunction(e){
+           if (e.target ==  document.getElementById('button1')){
+               document.getElementById("button1").style.background='#696969';
+           }
+           else if (e.target == document.getElementById('button2')){
+               document.getElementById("button2").style.background='#696969';
+           }
+           else if (e.target == document.getElementById('button3')){
+               document.getElementById("button3").style.background='#696969';
+           }
+           else if (e.target == document.getElementById('button4')){
+               document.getElementById("button4").style.background='#696969';
+           }
+           else if (e.target == document.getElementById('button5')){
+               document.getElementById("button5").style.background='#696969';
+           }
+           else if (e.target == document.getElementById('button6')){
+               document.getElementById("button6").style.background='#696969';
+           }
+           else if (e.target == document.getElementById('button7')){
+               document.getElementById("button7").style.background='#696969';
+           }
+           else if (e.target == document.getElementById('button8')){
+               document.getElementById("button8").style.background='#696969';
+           }
+           else if (e.target == document.getElementById('button9')){
+               document.getElementById("button9").style.background='#696969';
+           }
+           else if (e.target == document.getElementById('button10')){
+               document.getElementById("button10").style.background='#696969';
+           }
+           else if (e.target == document.getElementById('button11')){
+               document.getElementById("button11").style.background='#696969';
+           }
+           else if (e.target == document.getElementById('button12')){
+               document.getElementById("button12").style.background='#696969';
+           }
 
-        //set vars
-        numberofclicks =0;
-        dSum =0;
+           
+           dSum = + dSum + Number($(this).val());
+           numberofclicks = numberofclicks +1;
+           
+           
+          
+           if (numberofclicks==2){
+               if (dSum==10) {
+               document.getElementById("text").innerHTML = "correct";
+               document.getElementById("text").innerHTML = dSum;
+               } 
+           else {
+           document.getElementById("text").innerHTML = "incorrect";
+           document.getElementById("text").innerHTML = dSum;
+           }
+           }
+       };
 
-        function buttonfunction(){
-                     
-            dSum = + dSum + Number($(this).val());
-            numberofclicks = numberofclicks +1;
-
-            if (numberofclicks==2){
-                if (dSum==10) {
-                document.getElementById("text").innerHTML = "correct";
-                } 
-            else {
-            document.getElementById("text").innerHTML = "incorrect";
-            }
-            }
-        };
-        
+       function resetfunction(){
+           dSum = 0;
+           numberofclicks = 0;
+           document.getElementById("button1").style.background='#E6E6E6';
+           document.getElementById("button2").style.background='#E6E6E6';
+           document.getElementById("button3").style.background='#E6E6E6';
+           document.getElementById("button4").style.background='#E6E6E6';
+           document.getElementById("button5").style.background='#E6E6E6';
+           document.getElementById("button6").style.background='#E6E6E6';
+           document.getElementById("button7").style.background='#E6E6E6';
+           document.getElementById("button8").style.background='#E6E6E6';
+           document.getElementById("button9").style.background='#E6E6E6';
+           document.getElementById("button10").style.background='#E6E6E6';
+           document.getElementById("button11").style.background='#E6E6E6';
+           document.getElementById("button12").style.background='#E6E6E6';
+       }
     </script>
+    
 
     </html>
 
