@@ -22,7 +22,10 @@ class Group(BaseGroup):
 
 
 class Player(BasePlayer):
-   pass
+    number1             = models.IntegerField(blank=True)
+    number2             = models.IntegerField(blank=True)
+    number3             = models.BooleanField(blank=True)
+    sButtonClick        = models.StringField(blank=True)
     
 
 def get_current_trial(player: Player):
@@ -35,6 +38,8 @@ def is_finished(player: Player):
 
 class Trial(ExtraModel):
     player = models.Link(Player)
+
+# FUNCTIONS
 
 # PAGES
 class Math(Page):

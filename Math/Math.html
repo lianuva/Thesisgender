@@ -4,37 +4,88 @@
 
 {{ block content }}
 
-    Math test
-
     <!DOCTYPE html>
     <html>
+    
     <div id="buttons">
+    
     <table class="table">
         <tr>
-            <td><button id="button1" type="button">{{ n1 }}</button></td>
-            <td><button id="button2" type="button">{{ n2 }}</button></td>
-            <td><button id="button3" type="button">{{ n3 }}</button></td>
+            <td><button id="button1" type="button" value="{{n1}}">{{ n1 }}</button></td>
+            <td><button id="button2" type="button" value="{{n2}}">{{ n2 }}</button></td>
+            <td><button id="button3" type="button" value="{{n3}}">{{ n3 }}</button></td>
         </tr>
         <tr>
-            <td><button id="button4" type="button">{{ n4 }}</button></td>
-            <td><button id="button5" type="button">{{ n5 }}</button></td>
-            <td><button id="button6" type="button">{{ n6 }}</button></td>
+            <td><button id="button4" type="button" value="{{n4}}">{{ n4 }}</button></td>
+            <td><button id="button5" type="button" value="{{n5}}">{{ n5 }}</button></td>
+            <td><button id="button6" type="button" value="{{n6}}">{{ n6 }}</button></td>
         </tr>
         <tr>
-            <td><button id="button7" type="button">{{ n7 }}</button></td>
-            <td><button id="button8" type="button">{{ n8 }}</button></td>
-            <td><button id="button9" type="button">{{ n9 }}</button></td>
+            <td><button id="button7" type="button" value="{{n7}}">{{ n7 }}</button></td>
+            <td><button id="button8" type="button" value="{{n8}}">{{ n8 }}</button></td>
+            <td><button id="button9" type="button" value="{{n9}}">{{ n9 }}</button></td>
         </tr>
         <tr>
-            <td><button id="button10" type="button">{{ n10 }}</button></td>
-            <td><button id="button11" type="button">{{ n11 }}</button></td>
-            <td><button id="button12" type="button">{{ n12 }}</button></td>
+            <td><button id="button10" type="button" value="{{n10}}">{{ n10 }}</button></td>
+            <td><button id="button11" type="button" value="{{n11}}">{{ n11 }}</button></td>
+            <td><button id="button12" type="button" value="{{n12}}">{{ n12 }}</button></td>
         </tr>
     </table>
+
+    <p id="text"></p>
+    
     </div>
+    <!-- <script src="_static/Math.js"></script> -->
 
-    <script src="Math.js"></script>
+    <script> 
+        //get elements
+        let click1 = document.getElementById('button1');
+        let click2 = document.getElementById('button2');
+        let click3 = document.getElementById('button3');
+        let click4 = document.getElementById('button4');
+        let click5 = document.getElementById('button5');
+        let click6 = document.getElementById('button6');
+        let click7 = document.getElementById('button7');
+        let click8 = document.getElementById('button8');
+        let click9 = document.getElementById('button9');
+        let click10 = document.getElementById('button10');
+        let click11 = document.getElementById('button11');
+        let click12 = document.getElementById('button12');
 
+        //eventlistener
+        click1.addEventListener("click", buttonfunction)
+        click2.addEventListener("click", buttonfunction)
+        click3.addEventListener("click", buttonfunction)
+        click4.addEventListener("click", buttonfunction)
+        click5.addEventListener("click", buttonfunction)
+        click6.addEventListener("click", buttonfunction)
+        click7.addEventListener("click", buttonfunction)
+        click8.addEventListener("click", buttonfunction)
+        click9.addEventListener("click", buttonfunction)
+        click10.addEventListener("click", buttonfunction)
+        click11.addEventListener("click", buttonfunction)
+        click12.addEventListener("click", buttonfunction)
+
+        //set vars
+        numberofclicks =0;
+        dSum =0;
+
+        function buttonfunction(){
+                     
+            dSum = + dSum + Number($(this).val());
+            numberofclicks = numberofclicks +1;
+
+            if (numberofclicks==2){
+                if (dSum==10) {
+                document.getElementById("text").innerHTML = "correct";
+                } 
+            else {
+            document.getElementById("text").innerHTML = "incorrect";
+            }
+            }
+        };
+        
+    </script>
 
     </html>
 
