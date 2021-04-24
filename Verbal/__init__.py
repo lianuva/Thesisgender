@@ -6,7 +6,7 @@ Verbal
 
 
 class Constants(BaseConstants):
-    name_in_url = 'Verbal'
+    name_in_url = 'verbal'
     players_per_group = None
     num_rounds = 1
 
@@ -20,7 +20,7 @@ class Group(BaseGroup):
 
 
 class Player(BasePlayer):
-    word = models.StringField(label="Enter the words you find in the word below")
+    word = models.StringField(label="Enter the words you find in the word below", blank=True)
     
 def get_current_trial(player: Player):
     return Trial.filter(player=player, choice=None)[0]

@@ -6,7 +6,7 @@ Instructions
 
 
 class Constants(BaseConstants):
-    name_in_url = 'Instructions'
+    name_in_url = 'instructions'
     players_per_group = None
     num_rounds = 1
 

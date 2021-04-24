@@ -6,7 +6,7 @@ Questionnaire
 
 
 class Constants(BaseConstants):
-    name_in_url = 'Questionnaire'
+    name_in_url = 'questionnaire'
     players_per_group = None
     num_rounds = 1
 
@@ -25,17 +25,18 @@ class Player(BasePlayer):
 
     mathslider = models.FloatField(blank= True) 
     verbalslider = models.FloatField(blank= True)    
-    age = models.IntegerField(label="Please enter your age:")
+    age = models.IntegerField(label="Please enter your age:", blank=True)
     gender = models.IntegerField(
         choices=[
         [1, 'Male'],
         [2, 'Female'],
         [3, 'Prefer not to say'],
         ],
-        label="Please enter your gender:"
+        label="Please enter your gender:",
+        blank=True
         )   
-    occupation = models.StringField(label="Please enter your occupation (i.e. student/job):")
-    nationality = models.StringField(label="Please enter your nationality:")
+    occupation = models.StringField(label="Please enter your occupation (i.e. student/job):", blank=True)
+    nationality = models.StringField(label="Please enter your nationality:", blank=True)
 
 
 
