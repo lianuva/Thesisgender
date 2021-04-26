@@ -18,14 +18,12 @@ class Subsession(BaseSubsession):
     pass
 
 class Group(BaseGroup):
-  pass
+    pass
 
 
 class Player(BasePlayer):
-    number1             = models.IntegerField(blank=True)
-    number2             = models.IntegerField(blank=True)
-    number3             = models.BooleanField(blank=True)
-    sButtonClick        = models.StringField(blank=True)
+    dSum                = models.IntegerField(blank=True)
+    correct             = models.StringField(blank=True)
     
 
 def get_current_trial(player: Player):

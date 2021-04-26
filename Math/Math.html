@@ -11,7 +11,7 @@
     
     <table class="table">
         <tr>
-            <td><button id="button1" type="button" value="{{n1}}" onclick="background='#696969'">{{ n1 }}</button></td>
+            <td><button id="button1" type="button" value="{{n1}}">{{ n1 }}</button></td>
             <td><button id="button2" type="button" value="{{n2}}">{{ n2 }}</button></td>
             <td><button id="button3" type="button" value="{{n3}}">{{ n3 }}</button></td>
         </tr>
@@ -32,7 +32,8 @@
         </tr>
     </table>
 
-    <p id="text"></p>
+    <p id="text1"></p>
+    <p id="text2"></p>
 
     <button id="reset" type="button">Reset</button>
 
@@ -42,7 +43,7 @@
     </div>
     <!-- <script src="_static/Math.js"></script> -->
     <script>
-               //get elements + eventlistener
+        //get elements + eventlistener
        let click1  = document.getElementById('button1').addEventListener("click", buttonfunction);
        let click2  = document.getElementById('button2').addEventListener("click", buttonfunction);
        let click3  = document.getElementById('button3').addEventListener("click", buttonfunction);
@@ -61,6 +62,7 @@
        numberofclicks =0;
        dSum =0;
 
+       //function buttonclick
        function buttonfunction(e){
            if (e.target ==  document.getElementById('button1')){
                document.getElementById("button1").style.background='#696969';
@@ -99,27 +101,31 @@
                document.getElementById("button12").style.background='#696969';
            }
 
-           
+           //calculate sum of numbers clicked
            dSum = + dSum + Number($(this).val());
            numberofclicks = numberofclicks +1;
            
-           
-          
+           //check correct          
            if (numberofclicks==2){
                if (dSum==10) {
-               document.getElementById("text").innerHTML = "correct";
-               document.getElementById("text").innerHTML = dSum;
+               document.getElementById("text1").innerHTML = "correct";
+               document.getElementById("text2").innerHTML = dSum;
+               player.correct = 1;
                } 
            else {
-           document.getElementById("text").innerHTML = "incorrect";
-           document.getElementById("text").innerHTML = dSum;
+           document.getElementById("text1").innerHTML = "incorrect";
+           document.getElementById("text2").innerHTML = dSum;
+           player.correct = 0;
            }
            }
        };
 
+       //reset button
        function resetfunction(){
            dSum = 0;
            numberofclicks = 0;
+           document.getElementById("text1").innerHTML = "";
+           document.getElementById("text2").innerHTML = "";
            document.getElementById("button1").style.background='#E6E6E6';
            document.getElementById("button2").style.background='#E6E6E6';
            document.getElementById("button3").style.background='#E6E6E6';

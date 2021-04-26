@@ -20,7 +20,7 @@ class Group(BaseGroup):
 
 
 class Player(BasePlayer):
-    word = models.StringField(label="Enter the words you find in the word below", blank=True)
+    word = models.StringField(label="Enter the words you find below", blank=True)
     
 def get_current_trial(player: Player):
     return Trial.filter(player=player, choice=None)[0]

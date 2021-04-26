@@ -18,7 +18,7 @@
        dSum =0;
 
        function buttonfunction(e){
-           if (e.target ==  document.getElementById('button1')){
+           if ("e.target" ==  document.getElementById('button1')){
                document.getElementById("button1").style.background='#696969';
            }
            else if (e.target == document.getElementById('button2')){
