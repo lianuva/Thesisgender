@@ -3,148 +3,107 @@
 {{ endblock }}
 
 {{ block content }}
+{{ load staticfiles }}
+<link href="{% static 'Math/Math.css' %}" rel="stylesheet">
+<!-- link js-->
 
     <!DOCTYPE html>
     <html>
     
-    <div id="buttons">
+    <head>
+    </head>
     
     <table class="table">
         <tr>
-            <td><button id="button1" type="button" value="{{n1}}">{{ n1 }}</button></td>
-            <td><button id="button2" type="button" value="{{n2}}">{{ n2 }}</button></td>
-            <td><button id="button3" type="button" value="{{n3}}">{{ n3 }}</button></td>
+            <td><button class = "game-button" id="button1" type="button" value="{{n1}}">{{ n1 }}</button></td>
+            <td><button class = "game-button" id="button2" type="button" value="{{n2}}">{{ n2 }}</button></td>
+            <td><button class = "game-button" id="button3" type="button" value="{{n3}}">{{ n3 }}</button></td>
         </tr>
         <tr>
-            <td><button id="button4" type="button" value="{{n4}}">{{ n4 }}</button></td>
-            <td><button id="button5" type="button" value="{{n5}}">{{ n5 }}</button></td>
-            <td><button id="button6" type="button" value="{{n6}}">{{ n6 }}</button></td>
+            <td><button class = "game-button" id="button4" type="button" value="{{n4}}">{{ n4 }}</button></td>
+            <td><button class = "game-button" id="button5" type="button" value="{{n5}}">{{ n5 }}</button></td>
+            <td><button class = "game-button" id="button6" type="button" value="{{n6}}">{{ n6 }}</button></td>
         </tr>
         <tr>
-            <td><button id="button7" type="button" value="{{n7}}">{{ n7 }}</button></td>
-            <td><button id="button8" type="button" value="{{n8}}">{{ n8 }}</button></td>
-            <td><button id="button9" type="button" value="{{n9}}">{{ n9 }}</button></td>
+            <td><button class = "game-button" id="button7" type="button" value="{{n7}}">{{ n7 }}</button></td>
+            <td><button class = "game-button" id="button8" type="button" value="{{n8}}">{{ n8 }}</button></td>
+            <td><button class = "game-button" id="button9" type="button" value="{{n9}}">{{ n9 }}</button></td>
         </tr>
         <tr>
-            <td><button id="button10" type="button" value="{{n10}}">{{ n10 }}</button></td>
-            <td><button id="button11" type="button" value="{{n11}}">{{ n11 }}</button></td>
-            <td><button id="button12" type="button" value="{{n12}}">{{ n12 }}</button></td>
+            <td><button class = "game-button" id="button10" type="button" value="{{n10}}">{{ n10 }}</button></td>
+            <td><button class = "game-button" id="button11" type="button" value="{{n11}}">{{ n11 }}</button></td>
+            <td><button class = "game-button" id="button12" type="button" value="{{n12}}">{{ n12 }}</button></td>
         </tr>
     </table>
 
     <p id="text1"></p>
     <p id="text2"></p>
 
-    <button id="reset" type="button">Reset</button>
-
     <p></p>
     
-    
-    </div>
     <!-- <script src="_static/Math.js"></script> -->
     <script>
         //get elements + eventlistener
-       let click1  = document.getElementById('button1').addEventListener("click", buttonfunction);
-       let click2  = document.getElementById('button2').addEventListener("click", buttonfunction);
-       let click3  = document.getElementById('button3').addEventListener("click", buttonfunction);
-       let click4  = document.getElementById('button4').addEventListener("click", buttonfunction);
-       let click5  = document.getElementById('button5').addEventListener("click", buttonfunction);
-       let click6  = document.getElementById('button6').addEventListener("click", buttonfunction);
-       let click7  = document.getElementById('button7').addEventListener("click", buttonfunction);
-       let click8  = document.getElementById('button8').addEventListener("click", buttonfunction);
-       let click9  = document.getElementById('button9').addEventListener("click", buttonfunction);
-       let click10 = document.getElementById('button10').addEventListener("click", buttonfunction);
-       let click11 = document.getElementById('button11').addEventListener("click", buttonfunction);
-       let click12 = document.getElementById('button12').addEventListener("click", buttonfunction);
-       let reset   = document.getElementById('reset').addEventListener("click", resetfunction);
-
+       let vButtons = document.getElementsByClassName('game-button');
+              
        //set vars
        numberofclicks =0;
        dSum =0;
 
-       //function buttonclick
-       function buttonfunction(e){
-           if (e.target ==  document.getElementById('button1')){
-               document.getElementById("button1").style.background='#696969';
-           }
-           else if (e.target == document.getElementById('button2')){
-               document.getElementById("button2").style.background='#696969';
-           }
-           else if (e.target == document.getElementById('button3')){
-               document.getElementById("button3").style.background='#696969';
-           }
-           else if (e.target == document.getElementById('button4')){
-               document.getElementById("button4").style.background='#696969';
-           }
-           else if (e.target == document.getElementById('button5')){
-               document.getElementById("button5").style.background='#696969';
-           }
-           else if (e.target == document.getElementById('button6')){
-               document.getElementById("button6").style.background='#696969';
-           }
-           else if (e.target == document.getElementById('button7')){
-               document.getElementById("button7").style.background='#696969';
-           }
-           else if (e.target == document.getElementById('button8')){
-               document.getElementById("button8").style.background='#696969';
-           }
-           else if (e.target == document.getElementById('button9')){
-               document.getElementById("button9").style.background='#696969';
-           }
-           else if (e.target == document.getElementById('button10')){
-               document.getElementById("button10").style.background='#696969';
-           }
-           else if (e.target == document.getElementById('button11')){
-               document.getElementById("button11").style.background='#696969';
-           }
-           else if (e.target == document.getElementById('button12')){
-               document.getElementById("button12").style.background='#696969';
-           }
+        // Create hidden input (Pressed Buttons)
+        let correct        = document.createElement("input");
+        correct.type       = 'hidden';
+        correct.name       = 'correct';
+        correct.id         = 'correct';
+        correct.value      = '';
+       
+        document.addEventListener("DOMContentLoaded", function(debug=true) {
+            let body=document.getElementsByClassName("otree-body")[0];
+            body.appendChild(correct);
+            //console.log("input inserted");
+        });
 
-           //calculate sum of numbers clicked
-           dSum = + dSum + Number($(this).val());
-           numberofclicks = numberofclicks +1;
-           
-           //check correct          
-           if (numberofclicks==2){
-               if (dSum==10) {
-               document.getElementById("text1").innerHTML = "correct";
-               document.getElementById("text2").innerHTML = dSum;
-               player.correct = 1;
-               } 
-           else {
-           document.getElementById("text1").innerHTML = "incorrect";
-           document.getElementById("text2").innerHTML = dSum;
-           player.correct = 0;
-           }
-           }
-       };
+       for (i = 0; i < vButtons.length; i++) {
+            let button = vButtons[i];
+            button.addEventListener("click", function(){
+                button.style.background='#696969';
+                console.log(button.value)
+                dSum = + dSum + Number(button.value);
+                numberofclicks = numberofclicks +1;
+                
+                
+                if (numberofclicks==2){
+                    if (dSum==10) {
+                        if (correct.value == ""){
+                            correct.value = 1;
+                        } else {
+                            correct.value = +correct.value + 1;
+                        }  
+                        document.getElementById("text1").innerHTML = "correct";
+                        document.getElementById("text2").innerHTML = dSum;  
+                        document.getElementsByClassName("otree-btn-next")[0].click(); 
 
-       //reset button
-       function resetfunction(){
-           dSum = 0;
-           numberofclicks = 0;
-           document.getElementById("text1").innerHTML = "";
-           document.getElementById("text2").innerHTML = "";
-           document.getElementById("button1").style.background='#E6E6E6';
-           document.getElementById("button2").style.background='#E6E6E6';
-           document.getElementById("button3").style.background='#E6E6E6';
-           document.getElementById("button4").style.background='#E6E6E6';
-           document.getElementById("button5").style.background='#E6E6E6';
-           document.getElementById("button6").style.background='#E6E6E6';
-           document.getElementById("button7").style.background='#E6E6E6';
-           document.getElementById("button8").style.background='#E6E6E6';
-           document.getElementById("button9").style.background='#E6E6E6';
-           document.getElementById("button10").style.background='#E6E6E6';
-           document.getElementById("button11").style.background='#E6E6E6';
-           document.getElementById("button12").style.background='#E6E6E6';
-       }
+                    } else {
+                        document.getElementById("text1").innerHTML = "incorrect";
+                        document.getElementById("text2").innerHTML = dSum;    
+                        let x = document.getElementsByClassName("game-button");
+                            for (j = 0; j < x.length; j++) {
+                                x[j].style.background = "rgb(230, 230, 230)";
+                            }
+                        numberofclicks = 0;
+                        dSum = 0;
+                    }                   
+                } 
+                    
+                console.log(correct.value);
+                return correct
+            });
+        }
     </script>
     
-
     </html>
 
-    {{ next_button }}
+   {{ next_button }}
 {{ endblock }}
 
 

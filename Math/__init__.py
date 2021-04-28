@@ -22,8 +22,7 @@ class Group(BaseGroup):
 
 
 class Player(BasePlayer):
-    dSum                = models.IntegerField(blank=True)
-    correct             = models.StringField(blank=True)
+    correct = models.IntegerField(blank=True)
     
 
 def get_current_trial(player: Player):
@@ -41,7 +40,8 @@ class Trial(ExtraModel):
 
 # PAGES
 class Math(Page):
-    pass
+    form_model = 'player'
+    form_fields = ['correct']
 
     @staticmethod
     def vars_for_template(player):
