@@ -74,7 +74,9 @@ class Math(Page):
         }
 
    #@staticmethod
-   # def js_vars(player: Player):
-   #     return {}
+    # def js_vars(player: Player):
+     # return {
+          
+     # }
 
 page_sequence = [Math]
