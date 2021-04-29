@@ -4,12 +4,26 @@ Please fill in the question(s) below
 
 {{ block content }}
 
+
+
 <label class="col-form-label">
-    Who do you think performed better in first task (the math task)?
+    Who do you expect to perform better in first task (matrices task)?
 </label>
 <div class="input-group">
-      Men<div style="float:left; width:70%"><input type="range" id= "math" name="mathslider" min="-1" max="1" step="0.01" class="form-range" list="tickmarks"></div>Women 
+      Men<div style="float:left; width:70%"><input type="range" id= "mathslider" name="mathslider" min="-1" max="1" step="0.01" class="form-range" list="tickmarks"><span id="slider_value" ></span></div>Women 
 </div>
+You filled in: <p id="text2"></p> 
+Click <b>next</b> to confirm. <br><br>
+
+<script>
+    var slider = document.getElementById("mathslider");
+    var output = document.getElementById("slider_value");
+    
+    slider.oninput = function() {
+        document.getElementById("text2").innerHTML = this.value;
+    }
+</script>
+
 
 {{next_button}}
 

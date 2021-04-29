@@ -19,10 +19,6 @@ class Group(BaseGroup):
 
 
 class Player(BasePlayer):
-    #num_completed = models.IntegerField(initial=0)
-    #num_correct = models.IntegerField(initial=0)
-    #num_trials = models.IntegerField() 
-
     mathslider = models.FloatField(blank= True) 
     verbalslider = models.FloatField(blank= True)    
     age = models.IntegerField(label="Please enter your age:", blank=True)
@@ -37,7 +33,7 @@ class Player(BasePlayer):
         )   
     occupation = models.StringField(label="Please enter your occupation (i.e. student/job):", blank=True)
     nationality = models.StringField(label="Please enter your nationality:", blank=True)
-
+    email = models.StringField(label="Please enter your nationality:", blank=True)
 
 
 def get_current_trial(player: Player):
@@ -51,26 +47,25 @@ def is_finished(player: Player):
 class Trial(ExtraModel):
     player = models.Link(Player)
 
-def to_dict(trial: Trial):
-    return dict(
-        question=trial.question,
-        optionA=trial.optionA,
-        optionB=trial.optionB,
-        id=trial.id,
-    )
-
 # PAGES
+class Instructions(Page):
+    pass
+    
 class Questionnairemath(Page):
     form_model = 'player'
-    form_fields = ['verbalslider']
+    form_fields = ['mathslider']
 
 class Questionnaireverbal(Page):
     form_model = 'player'
-    form_fields = ['mathslider']
+    form_fields = ['verbalslider']
 
 class Demographics(Page):
     form_model = 'player'
     form_fields = ['age', 'gender', 'occupation', 'nationality']
+
+class Emailpayoff(Page):
+    form_model = 'player'
+    form_fields = ['email']
     
     @staticmethod
     def live_method(player: Player, data):
@@ -78,4 +73,4 @@ class Demographics(Page):
 
     
 
-page_sequence = [Questionnairemath, Questionnaireverbal, Demographics]
+page_sequence = [Instructions, Questionnairemath, Questionnaireverbal, Demographics, Emailpayoff]

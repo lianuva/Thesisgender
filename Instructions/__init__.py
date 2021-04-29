@@ -42,17 +42,12 @@ def is_finished(player: Player):
 class Trial(ExtraModel):
     player = models.Link(Player)
 
-def to_dict(trial: Trial):
-    return dict(
-        question=trial.question,
-        optionA=trial.optionA,
-        optionB=trial.optionB,
-        id=trial.id,
-    )
-
 
 # PAGES
 class Welcome(Page):
    pass
 
-page_sequence = [Welcome]
+class Math_instructions(Page):
+   pass
+
+page_sequence = [Welcome, Math_instructions]
