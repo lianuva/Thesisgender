@@ -33,14 +33,6 @@ def is_finished(player: Player):
 class Trial(ExtraModel):
     player = models.Link(Player)
 
-def to_dict(trial: Trial):
-    return dict(
-        question=trial.question,
-        optionA=trial.optionA,
-        optionB=trial.optionB,
-        id=trial.id,
-    )
-
 # PAGES
 class Verbal(Page):
     form_model = 'player'

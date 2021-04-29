@@ -3,8 +3,9 @@
 {{ endblock }}
 
 {{ block content }}
-{{ load staticfiles }}
+
 <link href="{% static 'Math/Math.css' %}" rel="stylesheet">
+
 <!-- link js-->
 
     <!DOCTYPE html>
@@ -50,10 +51,10 @@
         numberofclicks =0;
         dSum =0;
     
-        // Hidden Next Button
+        //Hidden Next Button
         //let EndButton               = document.createElement('button');
         //EndButton.style.visibility  = 'hidden';
-        //EndButton.className         = 'otree-btn-next';
+        //EndButton.className         = 'otree-btn-next btn btn-primary';
 
         // Create hidden input (Pressed Buttons)
         let correct        = document.createElement("input");
@@ -65,9 +66,11 @@
         document.addEventListener("DOMContentLoaded", function(debug=true) {
             let body=document.getElementsByClassName("otree-body")[0];
             body.appendChild(correct);
+            body.append(EndButton);
             //console.log("input inserted");
         });
-        
+                    
+
         for (i = 0; i < vButtons.length; i++) {
             let button = vButtons[i];
             button.addEventListener("click", function(){
@@ -86,7 +89,7 @@
                         }  
                         document.getElementById("text1").innerHTML = "correct";
                         document.getElementById("text2").innerHTML = dSum;  
-                        document.getElementsByClassName("otree-btn-next")[0].click(); 
+                        document.getElementsByClassName("otree-btn-next btn btn-primary")[0].click(); 
 
                     } else {
                         document.getElementById("text1").innerHTML = "incorrect";
@@ -109,14 +112,13 @@
             });//end button click function
 
         }//end forloop
-
-        
         
     </script>
     
     </html>
 
-   {{ next_button }}
+    {{next_button}}
+
 {{ endblock }}
 
 

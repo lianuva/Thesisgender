@@ -6,7 +6,6 @@ doc = """
 Math
 """
 
-
 class Constants(BaseConstants):
     name_in_url = 'math'
     players_per_group = None
@@ -23,6 +22,7 @@ class Group(BaseGroup):
 
 class Player(BasePlayer):
     correct = models.IntegerField(blank=True)
+   
     
 
 def get_current_trial(player: Player):
@@ -42,6 +42,9 @@ class Trial(ExtraModel):
 class Math(Page):
     form_model = 'player'
     form_fields = ['correct']
+    timer_text = 'Time left to complete the task:'
+    timeout_seconds = 120
+
 
     @staticmethod
     def vars_for_template(player):
