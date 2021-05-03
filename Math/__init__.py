@@ -21,27 +21,14 @@ class Group(BaseGroup):
 
 
 class Player(BasePlayer):
-    correct = models.IntegerField(blank=True)
-   
-    
-
-def get_current_trial(player: Player):
-    return Trial.filter(player=player, choice=None)[0]
-
-
-def is_finished(player: Player):
-    return player.num_completed == player.num_trials
-
-
-class Trial(ExtraModel):
-    player = models.Link(Player)
+    correcttables = models.IntegerField(blank=True)
 
 # FUNCTIONS
 
 # PAGES
 class Math(Page):
     form_model = 'player'
-    form_fields = ['correct']
+    form_fields = ['correcttables']
     timer_text = 'Time left to complete the task:'
     timeout_seconds = 120
 

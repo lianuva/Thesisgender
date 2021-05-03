@@ -33,7 +33,7 @@ class Player(BasePlayer):
         )   
     occupation = models.StringField(label="Please enter your occupation (i.e. student/job):", blank=True)
     nationality = models.StringField(label="Please enter your nationality:", blank=True)
-    email = models.StringField(label="Please enter your nationality:", blank=True)
+    email = models.StringField(label="Please enter your e-mail adress:", blank=True)
 
 
 def get_current_trial(player: Player):
