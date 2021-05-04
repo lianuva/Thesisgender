@@ -2,6 +2,7 @@ from otree.api import *
 import pandas as pd
 from openpyxl import load_workbook
 import json
+import csv
 
 doc = """
 Math
@@ -11,9 +12,9 @@ class Constants(BaseConstants):
     name_in_url = 'math'
     players_per_group = None
     num_rounds = 1
-    xl = pd.ExcelFile("Matrices.xlsx")
-    df = xl.parse("Sheet1")
 
+    df = pd.read_csv("_static/Math/Matrices.csv")
+   
 x = {
     "n1"  : Constants.df["ValueInside11"].values.tolist(),
     "n2"  : Constants.df["ValueInside12"].values.tolist(),
@@ -28,8 +29,8 @@ x = {
     "n11"  : Constants.df["ValueInside42"].values.tolist(),
     "n12"  : Constants.df["ValueInside43"].values.tolist(),
 }
-sorted_string = json.dumps(x)
 
+sorted_string = json.dumps(x)
 
 class Subsession(BaseSubsession):
     pass

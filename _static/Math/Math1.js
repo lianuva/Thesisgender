@@ -8,6 +8,15 @@ let numberofclicks =0;
 let dSum =0;
 var round = 0;
 
+//show otree timer lasy 10 sec
+// $(function () {
+//     $('.otree-timer__time-left').on('update.countdown', function (event) {
+//         if (event.offset.totalSeconds === 10) {
+//             $('.otree-timer').show();
+//         }
+//     });
+// });
+
 document.addEventListener("DOMContentLoaded", function(debug=true) {
     //define variables
     let body = document.getElementsByClassName("otree-body")[0];
@@ -22,6 +31,7 @@ document.addEventListener("DOMContentLoaded", function(debug=true) {
         //set first round
         if (round == 0) {
             n1 = numbers.split("[")[1].split(",")[round]
+            console.log(n1);
             n2 = numbers.split("[")[2].split(",")[round]
             n3 = numbers.split("[")[3].split(",")[round]
             n4 = numbers.split("[")[4].split(",")[round]
