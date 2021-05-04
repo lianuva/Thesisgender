@@ -79,9 +79,7 @@ document.addEventListener("DOMContentLoaded", function(debug=true) {
                     correct ++;
                     round ++;
                     }
-                    
-                    
-                                               
+                                             
                     //define table again
                     n1 = numbers.split("[")[1].split(",")[round]
                     n2 = numbers.split("[")[2].split(",")[round]
@@ -129,10 +127,8 @@ document.addEventListener("DOMContentLoaded", function(debug=true) {
                     }
 
                     //save number of correct tables
-                    console.log(round);
                     document.getElementById("correcttables").value = round;
-                    console.log(document.getElementById("correcttables").value);
-
+                    
                     //set numbers to 0 and continue to next round
                     numberofclicks = 0;
                     dSum = 0;
@@ -149,14 +145,12 @@ document.addEventListener("DOMContentLoaded", function(debug=true) {
                     },200);
                     numberofclicks = 0;
                     dSum = 0;
-                }                   
-            }         
-               
+                }    
+
+            }             
         
         });//end button click function
 
     } //end forloop
-
-
 
 });
