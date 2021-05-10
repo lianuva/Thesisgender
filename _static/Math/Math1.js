@@ -9,13 +9,13 @@ let dSum =0;
 var round = 0;
 
 //show otree timer lasy 10 sec
-// $(function () {
-//     $('.otree-timer__time-left').on('update.countdown', function (event) {
-//         if (event.offset.totalSeconds === 10) {
-//             $('.otree-timer').show();
-//         }
-//     });
-// });
+$(function () {
+    $('.otree-timer__time-left').on('update.countdown', function (event) {
+        if (event.offset.totalSeconds === 10) {
+            $('.otree-timer').show();
+        }
+    });
+});
 
 document.addEventListener("DOMContentLoaded", function(debug=true) {
     //define variables

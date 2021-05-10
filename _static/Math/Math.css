@@ -1,17 +1,20 @@
-table td{
-border: none;
-text-align: center;
+table td tr{
+    /* border: none; */
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    border: 0;
 }
-
+    
 .game-button {
-font-size: x-large;
-border: none;
-padding: 20px 5px; /*width/height of buttons*/
-text-align: center;
-margin: 4px;
-width:100%;
+    font-size: x-large;
+    border: 0;
+    padding: 0; /*width/height of buttons*/
+    text-align: center;
+    margin: 0;
+    width:100%;
 }
 
-/*.otree-timer {
+.otree-timer {
     display: none;
-}*/
+}
