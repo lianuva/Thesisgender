@@ -1,5 +1,8 @@
 from otree.api import *
 import pandas as pd
+from openpyxl import load_workbook
+import json
+import csv
 
 doc = """
 Verbal
@@ -10,10 +13,22 @@ class Constants(BaseConstants):
     name_in_url = 'verbal'
     players_per_group = None
     num_rounds = 1
-    xl = pd.ExcelFile("INFUSCATE-ENG.xlsx")
-    df = xl.parse("Sheet1")
+    df = pd.read_csv("_static/Verbal/INFUSCATE-ENG.csv")
 
+# Dump solution to json   
+x = {
+    "solution"  : Constants.df["Word"].tolist(),
+}
+solution_string = json.dumps(x)
 
+# Dump points to json   
+y = {
+    "points"  : Constants.df["Points"].tolist(),
+}
+points_string = json.dumps(y)
+
+# Number of correct words in excel sheet:
+numberofsolutions = len(Constants.df["Word"]) 
 
 class Subsession(BaseSubsession):
     pass
@@ -24,8 +39,9 @@ class Group(BaseGroup):
 
 
 class Player(BasePlayer):
-    word = models.StringField(label="Enter the words you find below", blank=True)
+    # word = models.StringField(label="Enter the words you find below", blank=True)
     score = models.IntegerField(blank=True)
+    
     
 def get_current_trial(player: Player):
     return Trial.filter(player=player, choice=None)[0]
@@ -41,7 +57,7 @@ class Trial(ExtraModel):
 # PAGES
 class Verbal(Page):
     form_model = 'player'
-    form_fields = ['word', 'score']
+    form_fields = ['score']
     #timer_text = 'Time left to complete the task:'
     #timeout_seconds = 120
     
@@ -54,9 +70,19 @@ class Verbal(Page):
 
     @staticmethod
     def vars_for_template(player):
-        solution  = Constants.df["Word"][0]
+        longword  = Constants.df["Longword"][0]
         return {
-            'solution' : solution,
+            'longword' : longword,
+        }
+
+    @staticmethod
+    def js_vars(player: Player):
+        # solution  = Constants.df["Word"][0]
+        return {
+            # 'solution' : solution,
+            'solution_string'   : solution_string,
+            'points_string'     : points_string,
+            'numberofsolutions' : numberofsolutions,
         }
 
 class Instructionsverbal(Page):

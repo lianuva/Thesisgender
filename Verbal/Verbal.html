@@ -1,7 +1,10 @@
+<link href="{% static 'Verbal/Verbal.css' %}" rel="stylesheet">
+<script src="{% static 'Verbal/Verbal.js' %}"></script>
+
 {{ block title }}
 <p>Please write down as many words as you can find with the letters of the word: </p>
 
-INFUSCATE
+{{ longword }}
 
 
 {{ endblock }}
@@ -13,58 +16,13 @@ INFUSCATE
     <input  name="submitword" type="text" maxlength="512" minlength="4" id="submitword" class="searchField" multiple/>
     <button id="submit1" type="button" value="submit1">Submit</button>
 
-    <p id="text1"></p>
+    <br>Your score:<p id="text1">0</p>
     <p id="text2"></p>
 
-    <script>
-        const OtreeBody  = document.getElementsByClassName("otree-body")[0];
-        let body         = document.createElement('div');
-        
+    <div id="answers"></div>
 
-        document.addEventListener("DOMContentLoaded", function(debug=true) {
-            OtreeBody.appendChild(body);
-            body.appendChild(score);
-            console.log("input inserted");
-        });
+    <input type="hidden" name="score" id="score"/>
 
-        let vWords  = document.getElementById('submitword');
-        let button  = document.getElementById('submit1');      
-        
-        var score        = document.createElement("input");
-        score.type       = 'hidden';
-        score.name       = 'score';
-        score.id         = 'score';
-        score.value      = '0';
+    <button>Next</button>
 
-    
-        button.addEventListener("click", function func(){
-            document.getElementById("text1").innerHTML = vWords.value;
-
-            str1="{{solution}}";
-            str2= vWords.value;
-            var n = str1.localeCompare(str2);
-            
-            if (n == 0) {
-                document.getElementById("text2").innerHTML = "correct";
-                if (score.value == ""){
-                        score.value = 1; 
-                    } else {
-                        score.value = +score.value +1;
-                    } 
-            } else {
-                document.getElementById("text2").innerHTML = "incorrect";
-                score.value = +score.value + 0;
-            }
-                    
-            console.log(score.value) 
-            return [score.value];
-            
-        });
-        
-        //console.log(score.value);
-        
-    </script>
-
-    {{next_button}}
-    
 {{ endblock }}

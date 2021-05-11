@@ -21,7 +21,7 @@ class Group(BaseGroup):
 class Player(BasePlayer):
     mathslider = models.FloatField(blank= True) 
     verbalslider = models.FloatField(blank= True)    
-    age = models.IntegerField(label="Please enter your age:", blank=True)
+    age = models.IntegerField(label="Please select your age:", blank=True)
     gender = models.IntegerField(
         choices=[
         [1, 'Male'],
@@ -33,6 +33,15 @@ class Player(BasePlayer):
         )   
     occupation = models.StringField(label="Please enter your occupation (i.e. student/job):", blank=True)
     nationality = models.StringField(label="Please enter your nationality:", blank=True)
+    firstlanguage = models.IntegerField(
+        choices=[
+        [1, 'Dutch'],
+        [2, 'English'],
+        [3, 'Other'],
+        ],
+        label="What is your first language?",
+        blank=True
+        ) 
     email = models.StringField(label="Please enter your e-mail adress:", blank=True)
 
 
@@ -61,7 +70,7 @@ class Questionnaireverbal(Page):
 
 class Demographics(Page):
     form_model = 'player'
-    form_fields = ['age', 'gender', 'occupation', 'nationality']
+    form_fields = ['age', 'gender', 'occupation', 'nationality', 'firstlanguage']
 
 class Emailpayoff(Page):
     form_model = 'player'
