@@ -17,13 +17,13 @@ document.addEventListener("DOMContentLoaded", function(debug=true) {
     
     OtreeBody.appendChild(body);
     body.appendChild(score);
+    
     console.log("input inserted");
 
 
-    let vWords  = document.getElementById('submitword').trim();
+    let vWords  = document.getElementById('submitword');
     let button  = document.getElementById('submit1');  
     
-    console.log(vWords);
 
 
     button.addEventListener("click", function func(){
@@ -61,10 +61,6 @@ document.addEventListener("DOMContentLoaded", function(debug=true) {
             }
             
         }
-
-       
-
-        console.log(score.value); 
         document.getElementById("score").value = score.value;
 
     });

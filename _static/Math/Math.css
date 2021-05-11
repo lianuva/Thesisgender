@@ -3,11 +3,11 @@ table td tr{
     text-align: center;
     margin: 0;
     padding: 0;
-    border: 0;
+    border: none;
 }
     
 .game-button {
-    font-size: x-large;
+    font-size: xx-large;
     border: 0;
     padding: 0; /*width/height of buttons*/
     text-align: center;
