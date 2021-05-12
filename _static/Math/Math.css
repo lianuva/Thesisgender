@@ -1,20 +1,50 @@
-table td tr{
-    /* border: none; */
-    text-align: center;
-    margin: 0;
-    padding: 0;
-    border: none;
+table td {
+    border: none !important;
+    white-space: nowrap;
 }
+
+table tr {
+    white-space: nowrap;
+    border: none !important;
     
-.game-button {
-    font-size: xx-large;
-    border: 0;
-    padding: 0; /*width/height of buttons*/
-    text-align: center;
-    margin: 0;
-    width:100%;
 }
+
+
+table {
+    border-collapse: collapse !important;
+    border-spacing: 0;
+    box-sizing: border-box;
+    display: grid; 
+    /* grid-template-columns: repeat(3, 1fr);
+    grid-column-gap: 0px;
+    column-gap: 0px; */
+    text-align: center;
+    position: relative;
+    left: 20%;
+    top: 50%;
+}
+
+:root {
+    --sq-height: 17vh;
+    --sq-width: 17vh;
+  } 
+
+.game-button {
+    border: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: #000;
+    text-align: center;
+    text-decoration: none;
+    white-space: nowrap;
+    vertical-align: middle;
+    height: var(--sq-height);
+    width: var(--sq-width);
+    font-size: x-large;
+}
+
 
 .otree-timer {
     display: none;
 }
+

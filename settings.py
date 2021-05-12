@@ -3,8 +3,8 @@ from os import environ
 SESSION_CONFIGS = [
     dict(
         name='Thesis_Lian', 
-        #app_sequence=['Instructions', 'Math', 'Verbal','Questionnaire', 'Results'],
-        app_sequence=['Verbal','Questionnaire', 'Results'], 
+        app_sequence=['Instructions', 'Math', 'Verbal','Questionnaire', 'Results'],
+        # app_sequence=['Verbal','Questionnaire', 'Results'], 
         num_demo_participants=1),
 ]
 
