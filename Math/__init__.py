@@ -48,8 +48,8 @@ class Player(BasePlayer):
 class Math(Page):
     form_model = 'player'
     form_fields = ['correcttables']
-    # timer_text = 'Time left to complete the task:'
-    # timeout_seconds = 120
+    timer_text = 'Time left to complete the task:'
+    timeout_seconds = 120
 
     @staticmethod
     def js_vars(player: Player):

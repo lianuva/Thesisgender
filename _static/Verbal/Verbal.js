@@ -6,15 +6,16 @@ let points_string       = js_vars.points_string;
 let score               = document.getElementById("score");
 let numberofsolutions   = js_vars.numberofsolutions;
 
-document.addEventListener("DOMContentLoaded", function(debug=true) {
-    //!if enter pressed, form submitted.
-    
-    // document.addEventListener("keyup", function(event) {
-    //     if (event.keyCode === 13) {
-    //         alert('Enter is pressed!');
-    //     }
-    // });    
-    
+//show otree timer lasy 10 sec
+$(function () {
+    $('.otree-timer__time-left').on('update.countdown', function (event) {
+        if (event.offset.totalSeconds === 10) {
+            $('.otree-timer').show();
+        }
+    });
+});
+
+document.addEventListener("DOMContentLoaded", function(debug=true) {  
     OtreeBody.appendChild(body);
     body.appendChild(score);
     
@@ -23,11 +24,26 @@ document.addEventListener("DOMContentLoaded", function(debug=true) {
 
     let vWords  = document.getElementById('submitword');
     let button  = document.getElementById('submit1');  
+
+    //when enter pressed, press submit button
+    window.addEventListener("keydown", function (event) {
+        if (event.defaultPrevented) {
+          return; // Do nothing if the event was already processed
+        }
+        switch (event.key) { 
+          case "Enter":
+            button.click();
+            break;
+          default:
+            return; // Quit when this doesn't handle the key event.
+        }
+        // Cancel the default action to avoid it being handled twice
+        event.preventDefault();
+    }, true);
     
-
-
     button.addEventListener("click", function func(){
 
+        //display input below inputfield
         word = document.createElement("p");
         word.innerHTML = vWords.value;
         document.getElementById("answers").appendChild(word);
@@ -43,25 +59,17 @@ document.addEventListener("DOMContentLoaded", function(debug=true) {
             // var n = str1.localeCompare(str2);
 
             //add score if a correct word is entered
-            if (str1 === str2.trim() && str1.length === str2.trim().length) {
-                console.log(str1.length);
-                console.log(str2.length);
+            if (str1 === str2.trim()) {
       
                 //get solutions from string 
                 points = points_string.split("[")[1].split(" ")[i];
                 points1 = points.replace(/['"]+/g,'').replace(',','');  
-                console.log(points1);
+              
 
                 score.value = +score.value + Number(points1); 
 
                 //if correct, remove word from string.
-                // if(vWords.value.length === str1) {
-                //     solution_string = solution_string.replace(vWords.value, " ");
-                // }
-                
-
-                solution_string = solution_string.replace(vWords.value, " ");
-
+                solution_string = solution_string.replace(solution, " ");
 
                 document.getElementById("text1").innerHTML = score.value;
             } else {
@@ -70,8 +78,16 @@ document.addEventListener("DOMContentLoaded", function(debug=true) {
             }
             
         }
-        document.getElementById("score").value = score.value;
 
+        //write score to html
+        document.getElementById("score").value = document.getElementById("text1").innerHTML;
+        //clear value inside inputbox
+        document.getElementById('submitword').value = ''
+
+        
     });
+    
+    //!save score
+    score = document.getElementById("score");
 
 });

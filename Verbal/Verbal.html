@@ -11,18 +11,14 @@
 
 {{ block content }}
 
-
-
-    <input  name="submitword" type="text" maxlength="512" minlength="4" id="submitword" class="searchField" multiple/>
+    <input  name="submitword" type="text" minlength="3" id="submitword"/>
     <button id="submit1" type="button" value="submit1">Submit</button>
 
     <br>Your score:<p id="text1">0</p>
-    <p id="text2"></p>
 
     <div id="answers"></div>
 
     <input type="hidden" name="score" id="score"/>
 
-    <button>Next</button>
 
 {{ endblock }}

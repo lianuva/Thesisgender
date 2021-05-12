@@ -39,34 +39,14 @@ class Group(BaseGroup):
 
 
 class Player(BasePlayer):
-    # word = models.StringField(label="Enter the words you find below", blank=True)
     score = models.IntegerField(blank=True)
-    
-    
-def get_current_trial(player: Player):
-    return Trial.filter(player=player, choice=None)[0]
-
-
-def is_finished(player: Player):
-    return player.num_completed == player.num_trials
-
-
-class Trial(ExtraModel):
-    player = models.Link(Player)
 
 # PAGES
 class Verbal(Page):
     form_model = 'player'
     form_fields = ['score']
-    #timer_text = 'Time left to complete the task:'
-    #timeout_seconds = 120
-    
-    #@staticmethod
-    # def vars_for_template(player):
-    #    word  = 'hello'
-    #    return {
-    #        'word' : word,
-    #    }
+    timer_text = 'Time left to complete the task:'
+    timeout_seconds = 20
 
     @staticmethod
     def vars_for_template(player):
@@ -77,9 +57,7 @@ class Verbal(Page):
 
     @staticmethod
     def js_vars(player: Player):
-        # solution  = Constants.df["Word"][0]
         return {
-            # 'solution' : solution,
             'solution_string'   : solution_string,
             'points_string'     : points_string,
             'numberofsolutions' : numberofsolutions,
