@@ -3,8 +3,9 @@ const OtreeBody         = document.getElementsByClassName("otree-body")[0];
 let body                = document.createElement('div');
 let solution_string     = js_vars.solution_string;
 let points_string       = js_vars.points_string;
-let score               = document.getElementById("score");
+let scoreverbal         = document.getElementById("score");
 let numberofsolutions   = js_vars.numberofsolutions;
+let score               = 0;
 
 //show otree timer lasy 10 sec
 $(function () {
@@ -17,7 +18,7 @@ $(function () {
 
 document.addEventListener("DOMContentLoaded", function(debug=true) {  
     OtreeBody.appendChild(body);
-    body.appendChild(score);
+    //body.appendChild(score);
     
     console.log("input inserted");
 
@@ -66,28 +67,29 @@ document.addEventListener("DOMContentLoaded", function(debug=true) {
                 points1 = points.replace(/['"]+/g,'').replace(',','');  
               
 
-                score.value = +score.value + Number(points1); 
+                score = +score + Number(points1); 
 
                 //if correct, remove word from string.
                 solution_string = solution_string.replace(solution, " ");
 
-                document.getElementById("text1").innerHTML = score.value;
+                document.getElementById("text1").innerHTML = score;
+
+                //save score
+                document.getElementById("score").value = score;
+
+                console.log(score);
+
             } else {
-                document.getElementById("text1").innerHTML = score.value;
-                score.value = +score.value + 0;
+                document.getElementById("text1").innerHTML = score;
+                score = +score + 0;
             }
             
         }
-
-        //write score to html
-        document.getElementById("score").value = document.getElementById("text1").innerHTML;
+       
         //clear value inside inputbox
         document.getElementById('submitword').value = ''
-
         
     });
-    
-    //!save score
-    score = document.getElementById("score");
+
 
 });
