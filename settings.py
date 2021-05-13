@@ -5,6 +5,7 @@ SESSION_CONFIGS = [
         name='Thesis_Lian', 
         app_sequence=['Instructions', 'Mathpractice', 'Math', 'Verbal','Questionnaire', 'Results'],
         #app_sequence=['Verbal','Questionnaire', 'Results'], 
+        #app_sequence=['Questionnaire', 'Results'], 
         num_demo_participants=1),
 ]
 
@@ -32,8 +33,8 @@ DEMO_PAGE_INTRO_HTML = """ """
 SECRET_KEY = '4387860144726'
 
 # if an app is included in SESSION_CONFIGS, you don't need to list it here
-INSTALLED_APPS = ['otree']
+INSTALLED_APPS = ['otree', 'django_countries']
 
-PARTICIPANT_FIELDS = ['']
+#PARTICIPANT_FIELDS = ['correcttables', 'score']
 
 extend_existing=True

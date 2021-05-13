@@ -1,32 +1,45 @@
 {{ block title }}
-Please fill in the question(s) below
+Questionnaire
 {{ endblock }}
 
 {{ block content }}
 
-
-
 <label class="col-form-label">
-    Who do you expect to perform better in first task (matrices task)?
+    Question 1: Who do you <b>expect</b> to perform better on <u>first task (matrices task)</u>?
 </label>
+<br><br>
+Slide the blue dot to the left if you expect men to perform better, and to the right if you expect women to perform better. 
+<br>
+If you are within a 10% range of the correct answer, you'll receive an extra payoff of XXX.
+<br><br>
+
 <div class="input-group">
-      Men<div style="float:left; width:70%"><input type="range" id= "mathslider" name="mathslider" min="-1" max="1" step="0.01" class="form-range" list="tickmarks"><span id="slider_value" ></span></div>Women 
+      Men<div style="float:left; width:70%"><input type="range" id= "mathslider" name="mathslider" min="0" max="2" step="0.01" class="form-range" list="tickmarks"><span id="slider_value" ></span></div>Women 
 </div>
-You filled in: <p id="text2"></p> 
-Click <b>next</b> to confirm. <br><br>
+
+<br>
+Your answer: <p id="text2">I expect men and women to perform equally well</p> 
+
+{{formfield 'confirm'}}
 
 <script>
     var slider = document.getElementById("mathslider");
     var output = document.getElementById("slider_value");
-    
+
     slider.oninput = function() {
-        document.getElementById("text2").innerHTML = this.value;
+        if (this.value < 1) {
+            console.log(this.value);
+            document.getElementById("text2").innerHTML = "I expect men to perform " + ((1-this.value)*100).toFixed(0) + "% better than women";
+        } else if (this.value > 1) {
+            document.getElementById("text2").innerHTML = "I expect women to perform " + ((this.value-1)*100).toFixed(0) + "% better than men";
+        } else if (this.value = 1) {
+            document.getElementById("text2").innerHTML = "I expect men and women to perform equally well";
+        }
     }
+
 </script>
 
 
 {{next_button}}
-
-<!-- back button? -->
 
 {{ endblock }}

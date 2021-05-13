@@ -55,7 +55,10 @@ class Math(Page):
     def js_vars(player: Player):
      return {
         'sorted_string' : sorted_string,
-     }
+    }
+
+    # def before_next_page(player):
+    #     player.participant.vars['correcttables'] = 3;
 
 class Mathwaitpage(Page):
     pass
