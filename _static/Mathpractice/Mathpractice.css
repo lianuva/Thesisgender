@@ -1,0 +1,50 @@
+table td {
+    border: none !important;
+    white-space: nowrap;
+}
+
+table tr {
+    white-space: nowrap;
+    border: none !important;
+    
+}
+
+
+table {
+    border-collapse: collapse !important;
+    border-spacing: 0;
+    box-sizing: border-box;
+    display: grid; 
+    /* grid-template-columns: repeat(3, 1fr);
+    grid-column-gap: 0px;
+    column-gap: 0px; */
+    text-align: center;
+    position: relative;
+    left: 20%;
+    top: 50%;
+}
+
+:root {
+    --sq-height: 17vh;
+    --sq-width: 17vh;
+  } 
+
+.game-button {
+    border: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: #000;
+    text-align: center;
+    text-decoration: none;
+    white-space: nowrap;
+    vertical-align: middle;
+    height: var(--sq-height);
+    width: var(--sq-width);
+    font-size: x-large;
+}
+
+
+.otree-timer {
+    display: none;
+}
+

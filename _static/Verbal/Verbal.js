@@ -6,6 +6,7 @@ let points_string       = js_vars.points_string;
 let scoreverbal         = document.getElementById("score");
 let numberofsolutions   = js_vars.numberofsolutions;
 let score               = 0;
+let j                   = 0;
 
 //show otree timer lasy 10 sec
 $(function () {
@@ -43,8 +44,7 @@ document.addEventListener("DOMContentLoaded", function(debug=true) {
     }, true);
     
     button.addEventListener("click", function func(){
-
-        //display input below inputfield
+    
         word = document.createElement("p");
         word.innerHTML = vWords.value;
         document.getElementById("answers").appendChild(word);

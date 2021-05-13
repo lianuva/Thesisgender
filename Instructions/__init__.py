@@ -24,11 +24,17 @@ class Subsession(BaseSubsession):
 
 
 class Group(BaseGroup):
-  pass
+    pass
 
 
 class Player(BasePlayer):
-    pass  
+    consent = models.IntegerField(
+        choices=[
+        [1, 'I would like to participate'],
+        ],
+        widget=widgets.RadioSelect,
+        label="",
+    )  
     
 
 def get_current_trial(player: Player):
@@ -45,9 +51,7 @@ class Trial(ExtraModel):
 
 # PAGES
 class Welcome(Page):
-   pass
+    form_model = 'player'
+    form_fields = ['consent']
 
-class Math_instructions(Page):
-   pass
-
-page_sequence = [Welcome, Math_instructions]
+page_sequence = [Welcome]

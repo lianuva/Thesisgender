@@ -57,4 +57,7 @@ class Math(Page):
         'sorted_string' : sorted_string,
      }
 
-page_sequence = [Math]
+class Mathwaitpage(Page):
+    pass
+
+page_sequence = [Mathwaitpage, Math]

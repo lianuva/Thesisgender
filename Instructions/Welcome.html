@@ -1,17 +1,55 @@
-{{ block title }}
-    Welcome!
-{{ endblock }}
+<!-- {{ block title }}
+{{ endblock }} -->
 
 {{ block content }}
 
-<!-- <img src="{{ static 'folder_name/puppy.jpg' }}"/> -->
+<style>
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+</style>
 
-You are about to participate in an experiment. <b>Please read the instructions carefully</b>. If you do, you might earn a substantial amount of money. Payment of earnings will be randomized after the experiment. <br><br> 
 
-The experiment exists of two tasks and a questionnaire. If you click ‘next’ you will see the instructions for the first task, a matrices task. <br><br>
 
-During this experiment your answers will be saved <b>anonymously</b>. If you want to have a chance to receive your payment, please fill in <i>your email address</i> on the last page of the experiment. <br><br>
+<img src="{{ static 'Questionnaire/UvA-logo.jpeg' }}" class="center"/>
 
+
+<p>
+<br>
+Welcome to this research study. Thank you for deciding to participate in this study.
+<br><br>
+This study is part of a Master's thesis of the Neuroeconomics track of Business Economics at the University of Amsterdam (UvA). 
+It is conducted by Lian Jongejan, with the supervision of Alejandro Hirmas (Phd Candidate, UvA).
+If you have any questions concerning this study, please feel free to contact Lian Jongejan (lian.jongejan@student.uva.nl). 
+
+<br><br>
+Your participation in this study will require approximately 15 – 20 minutes. 
+All information you provide will remain confidential and will not be associated with your name. 
+If you complete the full experiment and read the instructions carefully, you might earn a substantial amount of money. 
+If you want to have a chance to receive your payment, please fill in your email address on the last page of the experiment.
+After data gathering, a few participants will be randomly selected and paid according to their outcomes.  
+
+<br><br>
+
+To ensure confidentiality of the data, data will be processed in a coded way. 
+Your personal information will not be published. 
+The outcomes of this study may be used for scientific publications, or be shared with other researches, 
+but your identity will under no circumstance be identifiable. 
+If you have any questions or concerns about privacy, please contact Lian Jongejan (lian.jongejan@student.uva.nl).
+
+<br><br>
+
+Important note: it is <b>not possible</b> to participate in this study using a smartphone.
+
+<br><br>
+By clicking the button below, you acknowledge that your participation in the study is voluntary, you are over 18 years of age, 
+and that you are aware that you may choose to terminate your participation in the study at any time and for any reason.
+{{formfields}}
+
+</p>
     {{ next_button }}
 {{ endblock }}
 
