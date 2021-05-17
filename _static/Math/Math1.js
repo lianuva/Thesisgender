@@ -30,19 +30,18 @@ document.addEventListener("DOMContentLoaded", function(debug=true) {
         
         //set first round
         if (round == 0) {
-            n1 = numbers.split("[")[1].split(",")[round]
-            console.log(n1);
-            n2 = numbers.split("[")[2].split(",")[round]
-            n3 = numbers.split("[")[3].split(",")[round]
-            n4 = numbers.split("[")[4].split(",")[round]
-            n5 = numbers.split("[")[5].split(",")[round]
-            n6 = numbers.split("[")[6].split(",")[round]
-            n7 = numbers.split("[")[7].split(",")[round]
-            n8 = numbers.split("[")[8].split(",")[round]
-            n9 = numbers.split("[")[9].split(",")[round]
-            n10 = numbers.split("[")[10].split(",")[round]
-            n11 = numbers.split("[")[11].split(",")[round]
-            n12 = numbers.split("[")[12].split(",")[round]
+            n1 = numbers.split("[")[1].split(",")[round];
+            n2 = numbers.split("[")[2].split(",")[round];
+            n3 = numbers.split("[")[3].split(",")[round];
+            n4 = numbers.split("[")[4].split(",")[round];
+            n5 = numbers.split("[")[5].split(",")[round];
+            n6 = numbers.split("[")[6].split(",")[round];
+            n7 = numbers.split("[")[7].split(",")[round];
+            n8 = numbers.split("[")[8].split(",")[round];
+            n9 = numbers.split("[")[9].split(",")[round];
+            n10 = numbers.split("[")[10].split(",")[round];
+            n11 = numbers.split("[")[11].split(",")[round];
+            n12 = numbers.split("[")[12].split(",")[round];
         } 
 
         //read values to table
