@@ -1,12 +1,25 @@
 //constants
 const OtreeBody         = document.getElementsByClassName("otree-body")[0];
 let body                = document.createElement('div');
-let solution_string     = js_vars.solution_string;
-let points_string       = js_vars.points_string;
 let scoreverbal         = document.getElementById("score");
-let numberofsolutions   = js_vars.numberofsolutions;
+let round_number        = js_vars.round_number;
 let score               = 0;
 let j                   = 0;
+let wordcounter         = 0;
+let rownumber           = 0;
+
+if (round_number == 1) {
+    var solution_string     = js_vars.solution_string;
+    var points_string       = js_vars.points_string;
+    var numberofsolutions   = js_vars.numberofsolutions;
+} else if (round_number ==2) {
+    var solution_string     = js_vars.solution_string2;
+    var points_string       = js_vars.points_string2;
+    var numberofsolutions   = js_vars.numberofsolutions2;
+}
+
+console.log(numberofsolutions);
+console.log(solution_string);
 
 //show otree timer lasy 10 sec
 $(function () {
@@ -21,9 +34,6 @@ document.addEventListener("DOMContentLoaded", function(debug=true) {
     OtreeBody.appendChild(body);
     //body.appendChild(score);
     
-    console.log("input inserted");
-
-
     let vWords  = document.getElementById('submitword');
     let button  = document.getElementById('submit1');  
 
@@ -44,10 +54,29 @@ document.addEventListener("DOMContentLoaded", function(debug=true) {
     }, true);
     
     button.addEventListener("click", function func(){
-    
-        word = document.createElement("p");
-        word.innerHTML = vWords.value;
-        document.getElementById("answers").appendChild(word);
+        
+        remainder = (wordcounter % 5);
+        // if 5 words are entered, a new row is created
+        if (remainder == 0) {
+            rownumber ++;     
+            var y = document.createElement("TR" + rownumber);
+            y.setAttribute("id", "myTr" + rownumber);
+            document.getElementById("myTable").appendChild(y); //print row to table
+            br = document.createElement("br");
+            document.getElementById("myTable").appendChild(br);
+        } 
+
+        //words are displayed intro rows.
+        var z = document.createElement("TD");
+        var t = document.createTextNode(vWords.value);
+        z.appendChild(t);
+        document.getElementById("myTr" + rownumber).appendChild(z); //put td into row
+       
+        if (vWords.value == " ") {
+            wordcounter == wordcounter;
+        }  else {    
+        wordcounter ++;  
+        }    
         
         for (i = 0; i < numberofsolutions; i++) { 
           
@@ -59,28 +88,26 @@ document.addEventListener("DOMContentLoaded", function(debug=true) {
             str2= vWords.value.toLowerCase();
             // var n = str1.localeCompare(str2);
 
-            //add score if a correct word is entered
+            //add score if a correct word is entered (trim=without spaces)
             if (str1 === str2.trim()) {
       
                 //get solutions from string 
                 points = points_string.split("[")[1].split(" ")[i];
                 points1 = points.replace(/['"]+/g,'').replace(',','');  
-              
-
+            
                 score = +score + Number(points1); 
 
                 //if correct, remove word from string.
                 solution_string = solution_string.replace(solution, " ");
 
-                document.getElementById("text1").innerHTML = score;
 
                 //save score
                 document.getElementById("score").value = score;
-
+               
                 console.log(score);
 
             } else {
-                document.getElementById("text1").innerHTML = score;
+        
                 score = +score + 0;
             }
             

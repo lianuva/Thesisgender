@@ -1,12 +1,15 @@
-//set vectors
-let numbers = js_vars.sorted_string;
-let vButtons = document.getElementsByClassName('game-button');    
-
-//set constants
+//set vectors and constants
+let numbers         = js_vars.sorted_string;
+let vButtons        = document.getElementsByClassName('game-button');    
+let round_number    = js_vars.round_number;
 let correct = document.getElementById("correcttables");
-let numberofclicks =0;
-let dSum =0;
-var round = 0;
+let numberofclicks  =0;
+let dSum            =0;
+if (round_number == 1) {
+    var round   = 0;
+} else if (round_number == 2) {
+    var round   = 10;
+}
 
 //show otree timer lasy 10 sec
 $(function () {
@@ -29,19 +32,32 @@ document.addEventListener("DOMContentLoaded", function(debug=true) {
         let button = vButtons[i];
         
         //set first round
-        if (round == 0) {
-            n1 = numbers.split("[")[1].split(",")[round];
-            n2 = numbers.split("[")[2].split(",")[round];
-            n3 = numbers.split("[")[3].split(",")[round];
-            n4 = numbers.split("[")[4].split(",")[round];
-            n5 = numbers.split("[")[5].split(",")[round];
-            n6 = numbers.split("[")[6].split(",")[round];
-            n7 = numbers.split("[")[7].split(",")[round];
-            n8 = numbers.split("[")[8].split(",")[round];
-            n9 = numbers.split("[")[9].split(",")[round];
-            n10 = numbers.split("[")[10].split(",")[round];
-            n11 = numbers.split("[")[11].split(",")[round];
-            n12 = numbers.split("[")[12].split(",")[round];
+        if (round_number == 1) {
+            n1 = numbers.split("[")[1].split(",")[0];
+            n2 = numbers.split("[")[2].split(",")[0];
+            n3 = numbers.split("[")[3].split(",")[0];
+            n4 = numbers.split("[")[4].split(",")[0];
+            n5 = numbers.split("[")[5].split(",")[0];
+            n6 = numbers.split("[")[6].split(",")[0];
+            n7 = numbers.split("[")[7].split(",")[0];
+            n8 = numbers.split("[")[8].split(",")[0];
+            n9 = numbers.split("[")[9].split(",")[0];
+            n10 = numbers.split("[")[10].split(",")[0];
+            n11 = numbers.split("[")[11].split(",")[0];
+            n12 = numbers.split("[")[12].split(",")[0];
+        }  else if (round_number == 2) {
+            n1 = numbers.split("[")[1].split(",")[10];
+            n2 = numbers.split("[")[2].split(",")[10];
+            n3 = numbers.split("[")[3].split(",")[10];
+            n4 = numbers.split("[")[4].split(",")[10];
+            n5 = numbers.split("[")[5].split(",")[10];
+            n6 = numbers.split("[")[6].split(",")[10];
+            n7 = numbers.split("[")[7].split(",")[10];
+            n8 = numbers.split("[")[8].split(",")[10];
+            n9 = numbers.split("[")[9].split(",")[10];
+            n10 = numbers.split("[")[10].split(",")[10];
+            n11 = numbers.split("[")[11].split(",")[10];
+            n12 = numbers.split("[")[12].split(",")[10];
         } 
 
         //read values to table
@@ -136,7 +152,11 @@ document.addEventListener("DOMContentLoaded", function(debug=true) {
                     }
 
                     //save number of correct tables
-                    document.getElementById("correcttables").value = round;
+                    if (round_number ==1){
+                        document.getElementById("correcttables").value = round;
+                    } else if (round_number ==2){
+                        document.getElementById("correcttables").value = (round-10);
+                    }
                     
                     //set numbers to 0 and continue to next round
                     numberofclicks = 0;

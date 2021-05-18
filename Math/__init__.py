@@ -11,8 +11,8 @@ Math
 class Constants(BaseConstants):
     name_in_url = 'math'
     players_per_group = None
-    num_rounds = 1
-
+    num_rounds = 2
+    
     df = pd.read_csv("_static/Math/Matrices.csv")
    
 x = {
@@ -41,6 +41,7 @@ class Group(BaseGroup):
 
 class Player(BasePlayer):
     correcttables = models.IntegerField(blank=True)
+    # correcttables2 = models.IntegerField(blank=True)
 
 # FUNCTIONS
 
@@ -49,18 +50,32 @@ class Math(Page):
     form_model = 'player'
     form_fields = ['correcttables']
     timer_text = 'Time left to complete the task:'
-    timeout_seconds = 60
+    timeout_seconds = 20
 
     @staticmethod
     def js_vars(player: Player):
      return {
         'sorted_string' : sorted_string,
+        'round_number'  : player.round_number,
     }
 
-    # def before_next_page(player):
-    #     player.participant.vars['correcttables'] = 3;
+    @staticmethod
+    def before_next_page(player, timeout_happened):
+        if player.round_number == 1:
+            player.participant.correcttables = player.correcttables
+        else :
+            player.participant.correcttables2 = player.correcttables
 
-class Mathwaitpage(Page):
-    pass
 
-page_sequence = [Mathwaitpage, Math]
+class Mathwaitpageround1(Page):
+    @staticmethod
+    def is_displayed(player):
+        return player.round_number == 1
+
+class Mathwaitpageround2(Page):
+    @staticmethod
+    def is_displayed(player):
+        return player.round_number == 2
+
+
+page_sequence = [Mathwaitpageround1, Mathwaitpageround2, Math]

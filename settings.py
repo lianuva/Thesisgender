@@ -33,8 +33,8 @@ DEMO_PAGE_INTRO_HTML = """ """
 SECRET_KEY = '4387860144726'
 
 # if an app is included in SESSION_CONFIGS, you don't need to list it here
-INSTALLED_APPS = ['otree', 'django_countries']
+INSTALLED_APPS = ['otree']
 
-#PARTICIPANT_FIELDS = ['correcttables', 'score']
+PARTICIPANT_FIELDS = ['correcttables', 'correcttables2', 'score', 'score2', 'verbalpayoff', 'verbalpayoff2']
 
 extend_existing=True

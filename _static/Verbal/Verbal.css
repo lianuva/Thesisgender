@@ -5,3 +5,20 @@
 .answers {
     column-count: 2;
 }
+
+/* table td tr{ 
+    border-collapse: separate;
+    border-spacing: 50px;
+} */
+
+td { 
+    /* padding: 15px 30px; */
+    width: 100px;
+    height: 30px;
+}
+
+table tr{ 
+    border: black 1px;
+    border-spacing: 10px 20px;
+    border-collapse: separate;
+}

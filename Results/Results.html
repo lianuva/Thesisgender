@@ -1,11 +1,33 @@
 {{ block title }}
-    Results
+Results
 {{ endblock }}
 
 {{ block content }}
 
-Thank you for participating in our experiment! <br/>
+Your solved {{ player.participant.correcttables }} matrices in round 1, your potential payoff for this is: €{{ player.participant.correcttables }}.
+<br>
+
+Your solved {{ player.participant.correcttables2 }} matrices in round 2, your potential payoff for this is: €{{ player.participant.correcttables2 }}.
+<br>
+
+
+Your score on the verbal task in round 1 is: {{ player.participant.score }}, your potential payoff for this is: €{{ player.participant.verbalpayoff }}.
+<br>
+
+
+Your score on the verbal task in round 2 is: {{ player.participant.score2 }}, your potential payoff for this is: €{{ player.participant.verbalpayoff2 }}.
+<br>
+
+The answers to the questionnaire (slider part) will be incorporated after data gathering of the experiment is completed. 
+
+<br><br>
+
+{{ formfield 'email' }} <br>
+
+After all data gathering, a ranking of all participants will be published (via email) using nicknames. <br>
+
+{{ formfield 'nickname' }} <br>
+
+{{next_button}}
 
 {{ endblock }}
-
-
