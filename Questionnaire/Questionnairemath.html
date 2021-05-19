@@ -1,43 +1,73 @@
+<script src="{% static 'Questionnaire/Questionnaire.js' %}"></script>
 {{ block title }}
 Questionnaire
 {{ endblock }}
 
 {{ block content }}
 
-<label class="col-form-label">
-    Question 1: Who do you <b>expect</b> to perform better on <u>first task (matrices task)</u>?
-</label>
-<br><br>
-Slide the blue dot to the left if you expect men to perform better, and to the right if you expect women to perform better. 
-<br>
-If you are within a 10% range of the correct answer, you'll receive an extra payoff of XXX.
-<br><br>
-
-<div class="input-group">
-      Men<div style="float:left; width:70%"><input type="range" id= "mathslider" name="mathslider" min="0" max="2" step="0.01" class="form-range" list="tickmarks"><span id="slider_value" ></span></div>Women 
-</div>
-
-<br>
-Your answer: <p id="text2">I expect men and women to perform equally well</p> 
-
-{{formfield 'confirm'}}
-
-<script>
-    var slider = document.getElementById("mathslider");
-    var output = document.getElementById("slider_value");
-
-    slider.oninput = function() {
-        if (this.value < 1) {
-            console.log(this.value);
-            document.getElementById("text2").innerHTML = "I expect men to perform " + ((1-this.value)*100).toFixed(0) + "% better than women";
-        } else if (this.value > 1) {
-            document.getElementById("text2").innerHTML = "I expect women to perform " + ((this.value-1)*100).toFixed(0) + "% better than men";
-        } else if (this.value = 1) {
-            document.getElementById("text2").innerHTML = "I expect men and women to perform equally well";
-        }
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+<style>
+    datalist {
+        display: flex;
+        justify-content: space-between;
+        color: black;
+        width: 100%;
     }
 
-</script>
+    input {
+        width: 100%;
+    }
+
+    table {
+        width: 70%;
+    }
+</style>
+
+<label class="col-form-label">
+    Question: Who do you <b>expect</b> to solve more matrices on <u> the matrices task</u>?
+</label>
+
+<br><br>
+Slide the blue dot to the left if you expect men to solve more matrices, and to the right if you expect women to solve more matrices. <br>
+For example: if you expect women to solve (on average) 1 matrice more than men, slide to +1 for women.
+<br><br>
+If you enter exactly the correct answer, you'll receive an extra payoff of €3.<br>
+If your answer is off by 1, you'll receive an extra payoff of €2. <br>
+If your answer is off by 2, you'll receive an extra payoff of €1. <br>
+See also the graph below.
+<br><br>
+
+<table>
+    <tr>
+    <td>Men</td>
+    <td>
+        <div style="float:left; width:100%"><input type="range" id= "mathslider" name="mathslider" min="0" max="10" step="1" class="form-range" list="tickmarks"><span id="slider_value" ></span></div> 
+        <datalist id="tickmarks">
+            <option value="0" label="+5"></option>
+            <option value="1" label="+4"></option>
+            <option value="2" label="+3"></option>
+            <option value="3" label="+2"></option>
+            <option value="4" label="+1"></option>
+            <option value="5" label="0"></option>
+            <option value="6" label="+1"></option>
+            <option value="7" label="+2"></option>
+            <option value="8" label="+3"></option>
+            <option value="9" label="+4"></option>
+            <option value="10" label="+5"></option>
+        </datalist>
+    </td>
+    <td>Women</td>
+    </tr>
+
+</table>
+
+<text id="text1"></text>
+
+<br>
+
+<canvas id="myChart" style="width:100%;max-width:600px"></canvas>
+
+{{formfield 'confirm'}}
 
 
 {{next_button}}

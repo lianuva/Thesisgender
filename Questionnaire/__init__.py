@@ -1,4 +1,5 @@
 from otree.api import *
+import random
 
 doc = """
 Questionnaire
@@ -8,8 +9,8 @@ Questionnaire
 class Constants(BaseConstants):
     name_in_url = 'questionnaire'
     players_per_group = None
-    num_rounds = 1
-
+    tasks = ['1','2']
+    num_rounds = len(tasks)
 
 class Subsession(BaseSubsession):
     pass
@@ -47,16 +48,35 @@ def is_finished(player: Player):
 class Trial(ExtraModel):
     player = models.Link(Player)
 
+# FUNCTIONS
+def creating_session(subsession: Subsession):
+    if subsession.round_number == 1:
+        for p in subsession.get_players():
+            round_numbers = list(range(1, Constants.num_rounds + 1))
+            random.shuffle(round_numbers)
+            p.participant.vars['task_rounds'] = dict(zip(Constants.tasks, round_numbers))
+
+
 # PAGES
 class Instructions(Page):
-    pass
+    @staticmethod
+    def is_displayed(player: Player):
+        return player.round_number == 1
     
 class Questionnairemath(Page):
     form_model = 'player'
     form_fields = ['mathslider', 'confirm']
 
+    @staticmethod
+    def is_displayed(player: Player):
+        return player.round_number == player.participant.vars['task_rounds']['1']
+
 class Questionnaireverbal(Page):
     form_model = 'player'
     form_fields = ['verbalslider', 'confirm1']    
+
+    @staticmethod
+    def is_displayed(player: Player):
+        return player.round_number == player.participant.vars['task_rounds']['2']
 
 page_sequence = [Instructions, Questionnairemath, Questionnaireverbal]

@@ -85,7 +85,7 @@ class Player(BasePlayer):
         label="How would you rank your own English language skills?",
         )  
     email = models.StringField(label="Please enter your e-mail adress if you want to be in the random selection to be paid according to your outcomes:", blank=True)
-    nickname = models.StringField(label="If you want to receive this ranking to see how good you were relative to others, please enter your nickname:", blank=True)
+    nickname = models.StringField(label="If you want to receive this ranking to see how good you performed relative to other participants, please enter your nickname:", blank=True)
 
 
 def get_current_trial(player: Player):

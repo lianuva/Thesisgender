@@ -8,7 +8,7 @@ let dSum            =0;
 if (round_number == 1) {
     var round   = 0;
 } else if (round_number == 2) {
-    var round   = 10;
+    var round   = 15;
 }
 
 //show otree timer lasy 10 sec
@@ -24,6 +24,9 @@ document.addEventListener("DOMContentLoaded", function(debug=true) {
     //define variables
     let body = document.getElementsByClassName("otree-body")[0];
     
+
+    
+
     //Hidden Next Button
     let EndButton               = document.getElementsByClassName('otree-btn-next btn btn-primary')[0];
     EndButton.style.visibility  = 'hidden';   
@@ -46,18 +49,18 @@ document.addEventListener("DOMContentLoaded", function(debug=true) {
             n11 = numbers.split("[")[11].split(",")[0];
             n12 = numbers.split("[")[12].split(",")[0];
         }  else if (round_number == 2) {
-            n1 = numbers.split("[")[1].split(",")[10];
-            n2 = numbers.split("[")[2].split(",")[10];
-            n3 = numbers.split("[")[3].split(",")[10];
-            n4 = numbers.split("[")[4].split(",")[10];
-            n5 = numbers.split("[")[5].split(",")[10];
-            n6 = numbers.split("[")[6].split(",")[10];
-            n7 = numbers.split("[")[7].split(",")[10];
-            n8 = numbers.split("[")[8].split(",")[10];
-            n9 = numbers.split("[")[9].split(",")[10];
-            n10 = numbers.split("[")[10].split(",")[10];
-            n11 = numbers.split("[")[11].split(",")[10];
-            n12 = numbers.split("[")[12].split(",")[10];
+            n1 = numbers.split("[")[1].split(",")[15];
+            n2 = numbers.split("[")[2].split(",")[15];
+            n3 = numbers.split("[")[3].split(",")[15];
+            n4 = numbers.split("[")[4].split(",")[15];
+            n5 = numbers.split("[")[5].split(",")[15];
+            n6 = numbers.split("[")[6].split(",")[15];
+            n7 = numbers.split("[")[7].split(",")[15];
+            n8 = numbers.split("[")[8].split(",")[15];
+            n9 = numbers.split("[")[9].split(",")[15];
+            n10 = numbers.split("[")[10].split(",")[15];
+            n11 = numbers.split("[")[11].split(",")[15];
+            n12 = numbers.split("[")[12].split(",")[15];
         } 
 
         //read values to table
@@ -155,7 +158,7 @@ document.addEventListener("DOMContentLoaded", function(debug=true) {
                     if (round_number ==1){
                         document.getElementById("correcttables").value = round;
                     } else if (round_number ==2){
-                        document.getElementById("correcttables").value = (round-10);
+                        document.getElementById("correcttables").value = (round-15);
                     }
                     
                     //set numbers to 0 and continue to next round

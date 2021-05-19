@@ -59,6 +59,7 @@ class Math(Page):
         'round_number'  : player.round_number,
     }
 
+    # save vars for results page
     @staticmethod
     def before_next_page(player, timeout_happened):
         if player.round_number == 1:
@@ -66,6 +67,10 @@ class Math(Page):
         else :
             player.participant.correcttables2 = player.correcttables
 
+    # when refresh, dont start over
+    # @staticmethod
+    # def live_method(player, data):
+    #     print('received a bid from', player.id_in_group, ':', data)
 
 class Mathwaitpageround1(Page):
     @staticmethod
