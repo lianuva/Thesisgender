@@ -8,7 +8,6 @@ doc = """
 Verbal
 """
 
-
 class Constants(BaseConstants):
     name_in_url = 'verbal'
     players_per_group = None
@@ -94,6 +93,14 @@ class Verbal(Page):
         else :
             player.participant.score2 = player.score
             player.participant.verbalpayoff2 = round(player.score/10,2)
+
+
+    # @staticmethod
+    # def app_after_this_page(player, upcoming_apps):
+    #     print('upcoming_apps is', upcoming_apps)
+    #     if player.round_number == player.participant.vars['task_rounds']['2']:
+    #         # return upcoming_apps[0]
+    #         return "Mathpractice"
 
 class Instructionsverbalround1(Page):
     @staticmethod

@@ -49,6 +49,7 @@ class Trial(ExtraModel):
     player = models.Link(Player)
 
 # FUNCTIONS
+# randomize slider questions
 def creating_session(subsession: Subsession):
     if subsession.round_number == 1:
         for p in subsession.get_players():

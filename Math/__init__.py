@@ -41,9 +41,7 @@ class Group(BaseGroup):
 
 class Player(BasePlayer):
     correcttables = models.IntegerField(blank=True)
-    # correcttables2 = models.IntegerField(blank=True)
 
-# FUNCTIONS
 
 # PAGES
 class Math(Page):
@@ -69,8 +67,8 @@ class Math(Page):
 
     # when refresh, dont start over
     # @staticmethod
-    # def live_method(player, data):
-    #     print('received a bid from', player.id_in_group, ':', data)
+    # def live_method(player, round):
+        # print('received a bid from', player.id_in_group, ':', data)
 
 class Mathwaitpageround1(Page):
     @staticmethod
