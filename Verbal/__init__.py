@@ -89,18 +89,10 @@ class Verbal(Page):
     def before_next_page(player, timeout_happened):
         if player.round_number == 1:
             player.participant.score = player.score
-            player.participant.verbalpayoff = round(player.score/10,2)
+            player.participant.verbalpayoff = player.score/10
         else :
             player.participant.score2 = player.score
-            player.participant.verbalpayoff2 = round(player.score/10,2)
-
-
-    # @staticmethod
-    # def app_after_this_page(player, upcoming_apps):
-    #     print('upcoming_apps is', upcoming_apps)
-    #     if player.round_number == player.participant.vars['task_rounds']['2']:
-    #         # return upcoming_apps[0]
-    #         return "Mathpractice"
+            player.participant.verbalpayoff2 = player.score/10
 
 class Instructionsverbalround1(Page):
     @staticmethod

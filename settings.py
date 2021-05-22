@@ -3,7 +3,7 @@ from os import environ
 SESSION_CONFIGS = [
     dict(
         name='Thesis_Lian', 
-        app_sequence=['Instructions', 'Mathpractice', 'Math', 'Verbal','Questionnaire', 'Results'],
+        app_sequence=['Instructions', 'Math', 'Verbal', 'Math2', 'Questionnaire', 'Results'],
         #app_sequence=['Verbal','Questionnaire', 'Results'], 
         #app_sequence=['Questionnaire', 'Results'], 
         num_demo_participants=1),
@@ -35,6 +35,6 @@ SECRET_KEY = '4387860144726'
 # if an app is included in SESSION_CONFIGS, you don't need to list it here
 INSTALLED_APPS = ['otree']
 
-PARTICIPANT_FIELDS = ['correcttables', 'correcttables2', 'score', 'score2', 'verbalpayoff', 'verbalpayoff2', 'text']
+PARTICIPANT_FIELDS = ['correcttables', 'correcttables2', 'score', 'score2', 'verbalpayoff', 'verbalpayoff2', 'apprandom']
 
 extend_existing=True

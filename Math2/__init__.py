@@ -9,7 +9,7 @@ Math
 """
 
 class Constants(BaseConstants):
-    name_in_url = 'math'
+    name_in_url = 'math2'
     players_per_group = None
     num_rounds = 2
     
@@ -40,21 +40,34 @@ class Group(BaseGroup):
 
 
 class Player(BasePlayer):
-    correcttablespractice   = models.IntegerField(blank=True)
-    correcttables           = models.IntegerField(blank=True)
-    
+    correcttablespractice = models.IntegerField(blank=True)
+    correcttables = models.IntegerField(blank=True)
 
 
 # PAGES
-class Mathpractice(Page):
+class Mathwaitpageround3(Page):
+    @staticmethod
+    def is_displayed(player):
+        return player.round_number == 1 
+    
+    # @staticmethod
+    # def is_displayed(player):
+    #     return player.participant.apprandom == 2
+
+class Mathwaitpageround4(Page):
+    @staticmethod
+    def is_displayed(player):
+        return player.round_number == 2 
+
+class Mathpractice2(Page):
     form_model = 'player'
     form_fields = ['correcttablespractice']
 
     @staticmethod
     def is_displayed(player):
-        return player.round_number == 1
+        return player.round_number == 1 
 
-class Math(Page):
+class Math2(Page):
     form_model = 'player'
     form_fields = ['correcttables']
     timer_text = 'Time left to complete the task:'
@@ -73,17 +86,10 @@ class Math(Page):
         if player.round_number == 1:
             player.participant.correcttables = player.correcttables
         else :
-            player.participant.correcttables2 = player.correcttables    
-
-class Mathwaitpageround1(Page):
+            player.participant.correcttables2 = player.correcttables
+    
     @staticmethod
     def is_displayed(player):
-        return player.round_number == 1
+        return player.participant.apprandom == 2
 
-class Mathwaitpageround2(Page):
-    @staticmethod
-    def is_displayed(player):
-        return player.round_number == 2
-
-
-page_sequence = [Mathpractice, Mathwaitpageround1, Mathwaitpageround2, Math]
+page_sequence = [Mathpractice2, Mathwaitpageround3, Mathwaitpageround4, Math2]

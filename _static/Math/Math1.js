@@ -11,6 +11,8 @@ if (round_number == 1) {
     var round   = 15;
 }
 
+console.log(round_number);
+
 //show otree timer lasy 10 sec
 $(function () {
     $('.otree-timer__time-left').on('update.countdown', function (event) {

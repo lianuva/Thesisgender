@@ -3,6 +3,7 @@ const OtreeBody         = document.getElementsByClassName("otree-body")[0];
 let body                = document.createElement('div');
 let scoreverbal         = document.getElementById("score");
 let round_number        = js_vars.round_number;
+let contents            = js_vars.contents;
 let score               = 0;
 let j                   = 0;
 let wordcounter         = 0;
@@ -17,9 +18,10 @@ if (round_number == 1) {
     var points_string       = js_vars.points_string2;
     var numberofsolutions   = js_vars.numberofsolutions2;
 }
-
-console.log(numberofsolutions);
-console.log(solution_string);
+console.log(contents);
+if (contents == 2) {
+    document.getElementById("contents").innerHTML = "This experiment exists of two tasks, which you will have to perform twice, and a questionnaire.";
+}
 
 //show otree timer lasy 10 sec
 $(function () {
