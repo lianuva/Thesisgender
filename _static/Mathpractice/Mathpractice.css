@@ -15,9 +15,6 @@ table {
     border-spacing: 0;
     box-sizing: border-box;
     display: grid; 
-    /* grid-template-columns: repeat(3, 1fr);
-    grid-column-gap: 0px;
-    column-gap: 0px; */
     text-align: center;
     position: relative;
     left: 20%;

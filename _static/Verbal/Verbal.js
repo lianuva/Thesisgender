@@ -1,11 +1,9 @@
 //constants
 const OtreeBody         = document.getElementsByClassName("otree-body")[0];
 let body                = document.createElement('div');
-let scoreverbal         = document.getElementById("score");
 let round_number        = js_vars.round_number;
-let contents            = js_vars.contents;
+let contents            = js_vars.contents; //!
 let score               = 0;
-let j                   = 0;
 let wordcounter         = 0;
 let rownumber           = 0;
 
@@ -18,10 +16,10 @@ if (round_number == 1) {
     var points_string       = js_vars.points_string2;
     var numberofsolutions   = js_vars.numberofsolutions2;
 }
-console.log(contents);
-if (contents == 2) {
-    document.getElementById("contents").innerHTML = "This experiment exists of two tasks, which you will have to perform twice, and a questionnaire.";
-}
+
+//predetermine score =0
+document.getElementById("score").value = 0;
+console.log(document.getElementById("score").value);
 
 //show otree timer lasy 10 sec
 $(function () {
@@ -55,18 +53,8 @@ document.addEventListener("DOMContentLoaded", function(debug=true) {
         event.preventDefault();
     }, true);
     
+    //if button is clicked, the following happens:
     button.addEventListener("click", function func(){
-        
-        remainder = (wordcounter % 5);
-        // if 5 words are entered, a new row is created
-        if (remainder == 0) {
-            rownumber ++;     
-            var y = document.createElement("TR" + rownumber);
-            y.setAttribute("id", "myTr" + rownumber);
-            document.getElementById("myTable").appendChild(y); //print row to table
-            br = document.createElement("br");
-            document.getElementById("myTable").appendChild(br);
-        } 
 
         //words are displayed intro rows.
         var z = document.createElement("TD");
@@ -79,7 +67,19 @@ document.addEventListener("DOMContentLoaded", function(debug=true) {
         }  else {    
         wordcounter ++;  
         }    
-        
+
+        // if 5 words are entered, a new row is created
+        remainder = (wordcounter % 5);
+        if (remainder == 0) {
+            rownumber ++;     
+            var y = document.createElement("TR" + rownumber);
+            y.setAttribute("id", "myTr" + rownumber);
+            document.getElementById("myTable").appendChild(y); //print row to table
+            br = document.createElement("br");
+            document.getElementById("myTable").appendChild(br);
+        } 
+
+        //check if word entered is correct
         for (i = 0; i < numberofsolutions; i++) { 
           
             //get solutions from string
@@ -102,14 +102,12 @@ document.addEventListener("DOMContentLoaded", function(debug=true) {
                 //if correct, remove word from string.
                 solution_string = solution_string.replace(solution, " ");
 
-
                 //save score
                 document.getElementById("score").value = score;
                
                 console.log(score);
 
             } else {
-        
                 score = +score + 0;
             }
             

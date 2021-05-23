@@ -58,7 +58,7 @@ class Math(Page):
     form_model = 'player'
     form_fields = ['correcttables']
     timer_text = 'Time left to complete the task:'
-    timeout_seconds = 20
+    timeout_seconds =120
 
     @staticmethod
     def js_vars(player: Player):
@@ -84,6 +84,5 @@ class Mathwaitpageround2(Page):
     @staticmethod
     def is_displayed(player):
         return player.round_number == 2
-
 
 page_sequence = [Mathpractice, Mathwaitpageround1, Mathwaitpageround2, Math]

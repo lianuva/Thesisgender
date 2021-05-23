@@ -2,7 +2,6 @@
 let numbers         = js_vars.sorted_string;
 let vButtons        = document.getElementsByClassName('game-button');    
 let round_number    = js_vars.round_number;
-let correct         = document.getElementById("correcttables");
 let numberofclicks  =0;
 let dSum            =0;
 if (round_number == 1) {
@@ -10,8 +9,8 @@ if (round_number == 1) {
 } else if (round_number == 2) {
     var round   = 15;
 }
-
-console.log(round_number);
+//if 0 matrices solved; score =0
+document.getElementById("correcttables").value = 0;
 
 //show otree timer lasy 10 sec
 $(function () {
@@ -26,43 +25,12 @@ document.addEventListener("DOMContentLoaded", function(debug=true) {
     //define variables
     let body = document.getElementsByClassName("otree-body")[0];
 
-    // Get the text field that we're going to track
-    // let field = document.getElementById("field");
-
-    // See if we have an autosave value
-    // (this will only happen if the page is accidentally refreshed)
-    if (sessionStorage.getItem("autosave")) {
-        // Restore the contents of the text field
-        correct.value = sessionStorage.getItem("autosave");
-    }
-
-    // Listen for changes in the text field
-    correct.addEventListener("change", function() {
-        // And save the results into the session storage object
-        sessionStorage.setItem("autosave", correct.value);
-    });
-
-    if (sessionStorage.getItem("autosave")) {
-        // Restore the contents of the text field
-        correcttables.value = sessionStorage.getItem("autosave");
-    }
-
-    // Listen for changes in the text field
-    correcttables.addEventListener("change", function() {
-        // And save the results into the session storage object
-        correcttables.setItem("autosave", correcttables.value);
-    });
-
-
-
     //Hidden Next Button
     let EndButton               = document.getElementsByClassName('otree-btn-next btn btn-primary')[0];
     EndButton.style.visibility  = 'hidden';   
 
     for (i = 0; i < vButtons.length; i++) {
         let button = vButtons[i];
-
-        // document.getElementById("correcttables").value == 0;
      
         //set first round
         if (round_number == 1) {
@@ -125,20 +93,13 @@ document.addEventListener("DOMContentLoaded", function(debug=true) {
             button.style.background='#696969';
             dSum = + dSum + Number(button.value);
             numberofclicks = numberofclicks +1;
-
-           
-
+            
             //if 2 numbers are clicked, check if they sum to 10
             if (numberofclicks==2){
                 if (dSum==10) {
-                    
-                    //if numbers sum to 10, correct =1 and round +1
-                    if (correct ="") {
-                        correct = +1;
-                    } else{
-                    correct ++;
+
+                    //if numbers sum to 10, round +1
                     round ++;
-                    }
                                              
                     //define table again
                     n1 = numbers.split("[")[1].split(",")[round]
@@ -197,7 +158,12 @@ document.addEventListener("DOMContentLoaded", function(debug=true) {
                     numberofclicks = 0;
                     dSum = 0;
 
-                    // } 
+                    //if max rounds reached, continue to next page
+                    if (round_number ==1 && round ==15) {
+                        document.getElementsByClassName('otree-btn-next btn btn-primary')[0].click();
+                    } else if (round_number ==2 && round ==30){
+                        document.getElementsByClassName('otree-btn-next btn btn-primary')[0].click();
+                    }
                     
                 } else {
                     //if numbers do not sum to 10, reset colors and start again                    
@@ -209,11 +175,6 @@ document.addEventListener("DOMContentLoaded", function(debug=true) {
                     },200);
                     numberofclicks = 0;
                     dSum = 0;
-
-                    if (round == 0) {
-                        document.getElementById("correcttables").value == 3;
-                        console.log(document.getElementById("correcttables").value);
-                    }  
                 }
 
             }             

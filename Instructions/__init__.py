@@ -12,7 +12,6 @@ class Constants(BaseConstants):
     players_per_group = None
     tasks = ['1', '2']
     num_rounds = len(tasks)
-    # num_rounds =1
 
 class Subsession(BaseSubsession):
     pass

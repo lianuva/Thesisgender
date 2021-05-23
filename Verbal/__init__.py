@@ -85,6 +85,7 @@ class Verbal(Page):
             'round_number'          : player.round_number,
         }
 
+
     @staticmethod
     def before_next_page(player, timeout_happened):
         if player.round_number == 1:
