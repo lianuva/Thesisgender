@@ -12,7 +12,7 @@ class Constants(BaseConstants):
     name_in_url = 'math'
     players_per_group = None
     num_rounds = 2
-    
+    num_trials = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15"]
     df = pd.read_csv("_static/Math/Matrices.csv")
    
 x = {
@@ -42,8 +42,15 @@ class Group(BaseGroup):
 class Player(BasePlayer):
     correcttablespractice   = models.IntegerField(blank=True)
     correcttables           = models.IntegerField(blank=True)
-    
 
+# class Trial(ExtraModel):
+#     player                  = models.Link(Player)
+
+# def is_finished(player: Player):
+#     return player.num_completed == Constants.num_trials
+
+# def get_current_trial(player: Player):
+#     return Trial.filter(player=player, is_correct=None)[0]
 
 # PAGES
 class Mathpractice(Page):
@@ -57,9 +64,26 @@ class Mathpractice(Page):
 class Math(Page):
     form_model = 'player'
     form_fields = ['correcttables']
+
+    # live_method = live_method
     timer_text = 'Time left to complete the task:'
     timeout_seconds =120
 
+    # def live_method(player: Player, matrixround):
+    #     if matrixround:
+    #         player.correcttables = matrixround 
+    #         print(matrixround)
+            # print(data)
+
+        # if data:
+        #     # if is_finished(player):
+        #     #     return
+        #     trial = get_current_trial(player)
+        #     trial.matrixround = data['matrixround']
+
+        #     if trial.matrixround:
+        #         player.correcttables = trial.matrixround
+            
     @staticmethod
     def js_vars(player: Player):
      return {

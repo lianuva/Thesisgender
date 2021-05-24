@@ -2,8 +2,8 @@
 let numbers         = js_vars.sorted_string;
 let vButtons        = document.getElementsByClassName('game-button');    
 let round_number    = js_vars.round_number;
-let numberofclicks  =0;
-let dSum            =0;
+let numberofclicks  = 0;
+let dSum            = 0;
 if (round_number == 1) {
     var round   = 0;
 } else if (round_number == 2) {
@@ -94,6 +94,10 @@ document.addEventListener("DOMContentLoaded", function(debug=true) {
             dSum = + dSum + Number(button.value);
             numberofclicks = numberofclicks +1;
             
+            // liveSend({
+            //     matrixround: round,
+            // })
+
             //if 2 numbers are clicked, check if they sum to 10
             if (numberofclicks==2){
                 if (dSum==10) {
@@ -153,6 +157,12 @@ document.addEventListener("DOMContentLoaded", function(debug=true) {
                     } else if (round_number ==2){
                         document.getElementById("correcttables").value = (round-15);
                     }
+
+                    // if (round_number ==1){
+                    //     Matrix.create(player=player, document.getElementById("correcttables").value=round);
+                    // } else if (round_number ==2){
+                    //     Matrix.create(player=player, document.getElementById("correcttables").value=round);
+                    // }
                     
                     //set numbers to 0 and continue to next round
                     numberofclicks = 0;

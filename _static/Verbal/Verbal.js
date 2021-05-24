@@ -2,7 +2,6 @@
 const OtreeBody         = document.getElementsByClassName("otree-body")[0];
 let body                = document.createElement('div');
 let round_number        = js_vars.round_number;
-let contents            = js_vars.contents; //!
 let score               = 0;
 let wordcounter         = 0;
 let rownumber           = 0;
@@ -32,7 +31,6 @@ $(function () {
 
 document.addEventListener("DOMContentLoaded", function(debug=true) {  
     OtreeBody.appendChild(body);
-    //body.appendChild(score);
     
     let vWords  = document.getElementById('submitword');
     let button  = document.getElementById('submit1');  
@@ -56,18 +54,6 @@ document.addEventListener("DOMContentLoaded", function(debug=true) {
     //if button is clicked, the following happens:
     button.addEventListener("click", function func(){
 
-        //words are displayed intro rows.
-        var z = document.createElement("TD");
-        var t = document.createTextNode(vWords.value);
-        z.appendChild(t);
-        document.getElementById("myTr" + rownumber).appendChild(z); //put td into row
-       
-        if (vWords.value == " ") {
-            wordcounter == wordcounter;
-        }  else {    
-        wordcounter ++;  
-        }    
-
         // if 5 words are entered, a new row is created
         remainder = (wordcounter % 5);
         if (remainder == 0) {
@@ -78,6 +64,20 @@ document.addEventListener("DOMContentLoaded", function(debug=true) {
             br = document.createElement("br");
             document.getElementById("myTable").appendChild(br);
         } 
+       
+        //words are displayed intro rows.
+        var z = document.createElement("TD");
+        var t = document.createTextNode(vWords.value);
+        z.appendChild(t);
+        document.getElementById("myTr" + rownumber).appendChild(z); //put td into row
+
+        if (vWords.value == " ") {
+            wordcounter == wordcounter;
+        }  else {    
+        wordcounter ++;  
+        }    
+
+       
 
         //check if word entered is correct
         for (i = 0; i < numberofsolutions; i++) { 
@@ -88,7 +88,6 @@ document.addEventListener("DOMContentLoaded", function(debug=true) {
             //compare string to input
             str1= solution.replace(/['"]+/g,'').replace(',','');
             str2= vWords.value.toLowerCase();
-            // var n = str1.localeCompare(str2);
 
             //add score if a correct word is entered (trim=without spaces)
             if (str1 === str2.trim()) {

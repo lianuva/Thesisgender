@@ -70,8 +70,9 @@ class Welcome(Page):
     def before_next_page(player, timeout_happened):
         if player.round_number == player.participant.vars['task_rounds']['1']:
             player.participant.apprandom = 1
+            player.participant.apptext = ""
         else :
             player.participant.apprandom = 2
-
+            player.participant.apptext = "This experiment exists of two tasks, which you will have to perform twice, followed by a questionnaire. "
 
 page_sequence = [Welcome]

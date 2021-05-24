@@ -35,6 +35,6 @@ SECRET_KEY = '4387860144726'
 # if an app is included in SESSION_CONFIGS, you don't need to list it here
 INSTALLED_APPS = ['otree']
 
-PARTICIPANT_FIELDS = ['correcttables', 'correcttables2', 'score', 'score2', 'verbalpayoff', 'verbalpayoff2', 'apprandom']
+PARTICIPANT_FIELDS = ['correcttables', 'correcttables2', 'score', 'score2', 'verbalpayoff', 'verbalpayoff2', 'apprandom', 'apptext']
 
 extend_existing=True

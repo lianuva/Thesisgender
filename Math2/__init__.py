@@ -45,20 +45,6 @@ class Player(BasePlayer):
 
 
 # PAGES
-class Mathwaitpageround3(Page):
-    @staticmethod
-    def is_displayed(player):
-        return player.round_number == 1 
-    
-    # @staticmethod
-    # def is_displayed(player):
-    #     return player.participant.apprandom == 2
-
-class Mathwaitpageround4(Page):
-    @staticmethod
-    def is_displayed(player):
-        return player.round_number == 2 
-
 class Mathpractice2(Page):
     form_model = 'player'
     form_fields = ['correcttablespractice']
@@ -67,11 +53,33 @@ class Mathpractice2(Page):
     def is_displayed(player):
         return player.round_number == 1 
 
+    @staticmethod
+    def is_displayed(player):
+        return player.participant.apprandom == 2
+
+class Mathwaitpageround3(Page):
+    @staticmethod
+    def is_displayed(player):
+        return player.round_number == 1 
+    
+    @staticmethod
+    def is_displayed(player):
+        return player.participant.apprandom == 2
+
+class Mathwaitpageround4(Page):
+    @staticmethod
+    def is_displayed(player):
+        return player.round_number == 2 
+    
+    @staticmethod
+    def is_displayed(player):
+        return player.participant.apprandom == 2
+
 class Math2(Page):
     form_model = 'player'
     form_fields = ['correcttables']
     timer_text = 'Time left to complete the task:'
-    timeout_seconds = 20
+    timeout_seconds = 120
 
     @staticmethod
     def js_vars(player: Player):

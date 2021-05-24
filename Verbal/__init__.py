@@ -58,7 +58,7 @@ class Verbal(Page):
     form_model = 'player'
     form_fields = ['score']
     timer_text = 'Time left to complete the task:'
-    timeout_seconds = 30
+    timeout_seconds = 120
 
     @staticmethod
     def vars_for_template(player):
