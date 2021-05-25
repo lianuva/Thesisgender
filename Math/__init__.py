@@ -1,6 +1,5 @@
 from otree.api import *
 import pandas as pd
-from openpyxl import load_workbook
 import json
 import csv
 
