@@ -1,4 +1,31 @@
-# this is for Heroku and other servers.
-# Locally, you should install requirements_base.txt
--r requirements_base.txt
-psycopg2>=2.5.1
+aiofiles==0.6.0
+asgiref==3.3.4
+certifi==2020.12.5
+click==7.1.2
+Django==3.2
+django-countries==7.2.1
+django-http-method==1.2.0
+django-shortcuts==1.6
+et-xmlfile==1.0.1
+Flask==1.1.2
+h11==0.12.0
+itsdangerous==1.1.0
+Jinja2==2.11.3
+MarkupSafe==1.1.1
+numpy==1.20.2
+openpyxl==3.0.7
+otree==5.1.10
+pandas==1.2.4
+python-dateutil==2.8.1
+python-multipart==0.0.5
+pytz==2021.1
+PyYAML==5.4.1
+six==1.15.0
+SQLAlchemy==1.3.22
+sqlparse==0.4.1
+starlette==0.14.1
+uvicorn==0.13.4
+websockets==8.1
+Werkzeug==1.0.1
+WTForms==2.3.3
+WTForms-SQLAlchemy==0.2
