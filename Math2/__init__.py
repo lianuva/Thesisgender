@@ -51,29 +51,11 @@ class Mathpractice2(Page):
 
     @staticmethod
     def is_displayed(player):
-        return player.round_number == 1 
-
-    @staticmethod
-    def is_displayed(player):
         return player.participant.apprandom == 2
 
-class Mathwaitpageround3(Page):
     @staticmethod
     def is_displayed(player):
         return player.round_number == 1 
-    
-    @staticmethod
-    def is_displayed(player):
-        return player.participant.apprandom == 2
-
-class Mathwaitpageround4(Page):
-    @staticmethod
-    def is_displayed(player):
-        return player.round_number == 2 
-    
-    @staticmethod
-    def is_displayed(player):
-        return player.participant.apprandom == 2
 
 class Math2(Page):
     form_model = 'player'
@@ -99,5 +81,24 @@ class Math2(Page):
     @staticmethod
     def is_displayed(player):
         return player.participant.apprandom == 2
+
+class Mathwaitpageround3(Page):
+    @staticmethod
+    def is_displayed(player):
+        return player.participant.apprandom == 2
+
+    @staticmethod
+    def is_displayed(player):
+        return player.round_number == 1 
+    
+class Mathwaitpageround4(Page):
+    @staticmethod
+    def is_displayed(player):
+        return player.participant.apprandom == 2
+
+    @staticmethod
+    def is_displayed(player):
+        return player.round_number == 2 
+    
 
 page_sequence = [Mathpractice2, Mathwaitpageround3, Mathwaitpageround4, Math2]
