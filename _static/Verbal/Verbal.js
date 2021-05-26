@@ -29,6 +29,10 @@ $(function () {
     });
 });
 
+//Hidden Next Button
+let EndButton               = document.getElementsByClassName('otree-btn-next btn btn-primary')[0];
+EndButton.style.visibility  = 'hidden';   
+
 document.addEventListener("DOMContentLoaded", function(debug=true) {  
     OtreeBody.appendChild(body);
     
@@ -46,6 +50,11 @@ document.addEventListener("DOMContentLoaded", function(debug=true) {
             break;
           default:
             return; // Quit when this doesn't handle the key event.
+            // Hotkey for testing
+          case "x":
+            document.getElementsByClassName('otree-btn-next btn btn-primary')[0].click();
+            break;
+        
         }
         // Cancel the default action to avoid it being handled twice
         event.preventDefault();

@@ -11,8 +11,8 @@ SESSION_CONFIGS = [
 
 ROOMS = [
     dict(
-        name='econ101',
-        display_name='Econ 101 class',
+        name='Thesisexperiment',
+        display_name='Thesisexperiment',
         # participant_label_file='_rooms/labels.txt',
         # use_secure_urls=True
     ),
