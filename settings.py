@@ -13,8 +13,8 @@ ROOMS = [
     dict(
         name='econ101',
         display_name='Econ 101 class',
-        participant_label_file='_rooms/econ101.txt',
-        use_secure_urls=True
+        # participant_label_file='_rooms/labels.txt',
+        # use_secure_urls=True
     ),
 ]
 
