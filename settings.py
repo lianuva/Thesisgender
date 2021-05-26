@@ -16,11 +16,6 @@ ROOMS = [
         participant_label_file='_rooms/econ101.txt',
         use_secure_urls=True
     ),
-    dict(
-        name='econ_lab',
-        display_name='Experimental Economics Lab',
-        use_secure_urls=True
-    ),
 ]
 
 # if you set a property in SESSION_CONFIG_DEFAULTS, it will be inherited by all configs
