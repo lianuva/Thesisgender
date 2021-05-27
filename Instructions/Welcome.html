@@ -50,39 +50,31 @@ And please do <b>not refresh</b> the page during the tasks.
   let os1 = document.getElementById("os").value;
   
   function getOS() {
-  var userAgent = window.navigator.userAgent,
-      platform = window.navigator.platform,
-      macosPlatforms = ['Macintosh', 'MacIntel', 'MacPPC', 'Mac68K'],
-      windowsPlatforms = ['Win32', 'Win64', 'Windows', 'WinCE'],
-      iosPlatforms = ['iPhone', 'iPad', 'iPod'],
-      os = null;
+    var userAgent = window.navigator.userAgent,
+        platform = window.navigator.platform,
+        macosPlatforms = ['Macintosh', 'MacIntel', 'MacPPC', 'Mac68K'],
+        windowsPlatforms = ['Win32', 'Win64', 'Windows', 'WinCE'],
+        iosPlatforms = ['iPhone', 'iPad', 'iPod'],
+        os = null;
 
-  try {
+
     if (macosPlatforms.indexOf(platform) !== -1) {
-      os = 'Mac OS';
+      os = 'mac os';
     } else if (iosPlatforms.indexOf(platform) !== -1) {
-      os = 'iOS';
+      os = 'ios';
     } else if (windowsPlatforms.indexOf(platform) !== -1) {
-      os = 'Windows';
+      os = 'windows';
     } else if (/Android/.test(userAgent)) {
-      os = 'Android';
+      os = 'android';
     } else if (!os && /Linux/.test(platform)) {
-      os = 'Linux';
+      os = 'linux';
     } 
+    return os;
   }
-  catch (err) {
-    os = 'unknown';
-  }
+  
+  os = getOS();
+  document.getElementById("os").value = os;
 
-  return os;
-}
-os = getOS();
-
-document.getElementById("os").value = os;
-
-console.log(os);
-
-console.log(document.getElementById("os").value);
 </script>
 
 
