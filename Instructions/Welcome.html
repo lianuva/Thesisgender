@@ -47,33 +47,36 @@ And please do <b>not refresh</b> the page during the tasks.
 <input type="hidden" name="os" id="os"/>
 
 <script>
-  let os1 = document.getElementById("os").value;
-  
-  function getOS() {
-    var userAgent = window.navigator.userAgent,
-        platform = window.navigator.platform,
-        macosPlatforms = ['Macintosh', 'MacIntel', 'MacPPC', 'Mac68K'],
-        windowsPlatforms = ['Win32', 'Win64', 'Windows', 'WinCE'],
-        iosPlatforms = ['iPhone', 'iPad', 'iPod'],
-        os = null;
+  document.addEventListener("DOMContentLoaded", function(debug=true) {
+    
+    let os1 = document.getElementById("os").value;
+    
+    function getOS() {
+      var userAgent = window.navigator.userAgent,
+          platform = window.navigator.platform,
+          macosPlatforms = ['Macintosh', 'MacIntel', 'MacPPC', 'Mac68K'],
+          windowsPlatforms = ['Win32', 'Win64', 'Windows', 'WinCE'],
+          iosPlatforms = ['iPhone', 'iPad', 'iPod'],
+          os = null;
 
 
-    if (macosPlatforms.indexOf(platform) !== -1) {
-      os = 'mac os';
-    } else if (iosPlatforms.indexOf(platform) !== -1) {
-      os = 'ios';
-    } else if (windowsPlatforms.indexOf(platform) !== -1) {
-      os = 'windows';
-    } else if (/Android/.test(userAgent)) {
-      os = 'android';
-    } else if (!os && /Linux/.test(platform)) {
-      os = 'linux';
-    } 
-    return os;
-  }
-  
-  os = getOS();
-  document.getElementById("os").value = os;
+      if (macosPlatforms.indexOf(platform) !== -1) {
+        os = 'mac os';
+      } else if (iosPlatforms.indexOf(platform) !== -1) {
+        os = 'ios';
+      } else if (windowsPlatforms.indexOf(platform) !== -1) {
+        os = 'windows';
+      } else if (/Android/.test(userAgent)) {
+        os = 'android';
+      } else if (!os && /Linux/.test(platform)) {
+        os = 'linux';
+      } 
+      return os;
+    }
+    
+    os = getOS();
+    document.getElementById("os").value = os;
+  });
 
 </script>
 
