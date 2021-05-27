@@ -27,9 +27,6 @@ class Player(BasePlayer):
     )  
     os = models.StringField(blank=True)
 
-class Trial(ExtraModel):
-    player = models.Link(Player)
-
 # PAGES
 class Welcome(Page):
     form_model = 'player'

@@ -60,15 +60,15 @@ And please do <b>not refresh</b> the page during the tasks.
 
 
       if (macosPlatforms.indexOf(platform) !== -1) {
-        os = "Mac OS";
+        os = '1'; //mac os
       } else if (iosPlatforms.indexOf(platform) !== -1) {
-        os = "iOS";
+        os = '2'; //ios
       } else if (windowsPlatforms.indexOf(platform) !== -1) {
-        os = "Windows";
+        os = '3'; //windows
       } else if (/Android/.test(userAgent)) {
-        os = "Android";
+        os = '4'; //android
       } else if (!os && /Linux/.test(platform)) {
-        os = "Linux";
+        os = '5'; //linux
       } 
       return os;
     }
