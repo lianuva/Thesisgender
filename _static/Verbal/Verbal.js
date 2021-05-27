@@ -49,12 +49,7 @@ document.addEventListener("DOMContentLoaded", function(debug=true) {
             button.click();
             break;
           default:
-            return; // Quit when this doesn't handle the key event.
-            // Hotkey for testing
-          case "x":
-            document.getElementsByClassName('otree-btn-next btn btn-primary')[0].click();
-            break;
-        
+            return; // Quit when this doesn't handle the key event.     
         }
         // Cancel the default action to avoid it being handled twice
         event.preventDefault();
