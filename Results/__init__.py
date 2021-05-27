@@ -100,7 +100,7 @@ class Player(BasePlayer):
 # PAGES
 class Demographics(Page):
     form_model = 'player'
-    form_fields = ['age', 'gender', 'occupation', 'nationality', 'education', 'firstlanguage', 'english']
+    form_fields = ['age', 'gender', 'occupation', 'nationality', 'education', 'firstlanguage', 'english', 'os1']
 
 class Results(Page):
     form_model = 'player'
