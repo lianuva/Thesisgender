@@ -69,7 +69,6 @@ class Group(BaseGroup):
 
 class Player(BasePlayer):
     correcttablespractice   = models.IntegerField(blank=True)
-    os1                     = models.StringField(blank=True)
     correcttables           = models.IntegerField(blank=True)
     correcttables2           = models.IntegerField(blank=True)
     score                   = models.IntegerField(blank=True)
@@ -170,7 +169,7 @@ class Verbalinstructionsround2(Page):
 
 class Mathpractice(Page):
     form_model = 'player'
-    form_fields = ['correcttablespractice', 'os1']
+    form_fields = ['correcttablespractice']
 
     @staticmethod
     def is_displayed(player: Player):
