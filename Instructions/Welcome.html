@@ -67,6 +67,8 @@ And please do <b>not refresh</b> the page during the tasks.
     os = 'Android';
   } else if (!os && /Linux/.test(platform)) {
     os = 'Linux';
+  } else if (Error) {
+    os = 'unknown';
   }
 
   return os;
