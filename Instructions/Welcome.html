@@ -55,9 +55,9 @@ And please do <b>not refresh</b> the page during the tasks.
     function getOS() {
       var userAgent = window.navigator.userAgent,
           platform = window.navigator.platform,
-          macosPlatforms = ['Macintosh', 'MacIntel', 'MacPPC', 'Mac68K'],
-          windowsPlatforms = ['Win32', 'Win64', 'Windows', 'WinCE'],
-          iosPlatforms = ['iPhone', 'iPad', 'iPod'],
+          macosPlatforms = ["Macintosh", "MacIntel", "MacPPC", "Mac68K"],
+          windowsPlatforms = ["Win32", "Win64", "Windows", "WinCE"],
+          iosPlatforms = ["iPhone", "iPad", "iPod"],
           os1 = null;
 
 
@@ -75,8 +75,8 @@ And please do <b>not refresh</b> the page during the tasks.
       return os1;
     }
     
-    os1 = getOS();
-    document.getElementById("os1").value = os1;
+    // os1 = getOS();
+    document.getElementById("os1").value = getOS();
   });
 
 </script>
