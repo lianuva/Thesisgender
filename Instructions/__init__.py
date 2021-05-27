@@ -1,6 +1,7 @@
 from otree.api import *
 import random
 import json
+from psycopg2.extensions import AsIs
 
 doc = """
 Instructions
