@@ -44,37 +44,37 @@ And please do <b>not refresh</b> the page during the tasks.
 
 {{formfield 'consent'}}
 
-<input type="hidden" name="os" id="os"/>
+<input type="hidden" name="os1" id="os1"/>
 
 <script>
   document.addEventListener("DOMContentLoaded", function(debug=true) {
-    let os1 = document.getElementById("os").value;
+    let os1 = document.getElementById("os1").value;
     
     function getOS() {
       var userAgent = window.navigator.userAgent,
           platform = window.navigator.platform,
-          macosPlatforms = ["Macintosh", "MacIntel", "MacPPC", "Mac68K"],
-          windowsPlatforms = ["Win32", "Win64", "Windows", "WinCE"],
-          iosPlatforms = ["iPhone", "iPad", "iPod"],
-          os = null;
+          macosPlatforms = ['Macintosh', 'MacIntel', 'MacPPC', 'Mac68K'],
+          windowsPlatforms = ['Win32', 'Win64', 'Windows', 'WinCE'],
+          iosPlatforms = ['iPhone', 'iPad', 'iPod'],
+          os1 = null;
 
 
       if (macosPlatforms.indexOf(platform) !== -1) {
-        os = 'Mac OS';
+        os1 = 'Mac OS';
       } else if (iosPlatforms.indexOf(platform) !== -1) {
-        os = 'iOS';
+        os1 = 'iOS';
       } else if (windowsPlatforms.indexOf(platform) !== -1) {
-        os = 'Windows';
+        os1 = 'Windows';
       } else if (/Android/.test(userAgent)) {
-        os = 'Android';
+        os1 = 'Android';
       } else if (!os && /Linux/.test(platform)) {
-        os = 'Linux';
+        os1 = 'Linux';
       } 
-      return os;
+      return os1;
     }
     
-    os = getOS();
-    document.getElementById("os").value = os;
+    os1 = getOS();
+    document.getElementById("os1").value = os1;
   });
 
 </script>
