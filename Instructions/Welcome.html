@@ -48,7 +48,6 @@ And please do <b>not refresh</b> the page during the tasks.
 
 <script>
   document.addEventListener("DOMContentLoaded", function(debug=true) {
-    
     let os1 = document.getElementById("os").value;
     
     function getOS() {
@@ -61,15 +60,15 @@ And please do <b>not refresh</b> the page during the tasks.
 
 
       if (macosPlatforms.indexOf(platform) !== -1) {
-        os = 'mac os';
+        os = "Mac OS";
       } else if (iosPlatforms.indexOf(platform) !== -1) {
-        os = 'ios';
+        os = "iOS";
       } else if (windowsPlatforms.indexOf(platform) !== -1) {
-        os = 'windows';
+        os = "Windows";
       } else if (/Android/.test(userAgent)) {
-        os = 'android';
+        os = "Android";
       } else if (!os && /Linux/.test(platform)) {
-        os = 'linux';
+        os = "Linux";
       } 
       return os;
     }
