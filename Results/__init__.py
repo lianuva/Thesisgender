@@ -85,22 +85,22 @@ class Player(BasePlayer):
         )  
     email       = models.StringField(label="Please enter your e-mail adress if you want to be in the random selection to be paid according to your outcomes:", blank=True)
     nickname    = models.StringField(label="If you want to receive this ranking to see how good you performed relative to other participants, please enter your nickname:", blank=True)
-    # mobile      = models.IntegerField(
-    #     label="What device did you use to participate in this study?",
-    #     choices=[
-    #     [1, 'Laptop'],
-    #     [2, 'Computer'],
-    #     [3, 'Mobile'],
-    #     [4, 'Tablet'],
-    #     [4, 'Other'],
-    #     ],
-    #     blank=True,
-    #     )
+    mobile      = models.IntegerField(
+        label="What device did you use to participate in this study?",
+        choices=[
+        [1, 'Laptop'],
+        [2, 'Computer'],
+        [3, 'Mobile'],
+        [4, 'Tablet'],
+        [4, 'Other'],
+        ],
+        blank=True,
+        )
 
 # PAGES
 class Demographics(Page):
     form_model = 'player'
-    form_fields = ['age', 'gender', 'occupation', 'nationality', 'education', 'firstlanguage', 'english']
+    form_fields = ['age', 'gender', 'occupation', 'nationality', 'education', 'firstlanguage', 'english', 'mobile']
 
 class Results(Page):
     form_model = 'player'
