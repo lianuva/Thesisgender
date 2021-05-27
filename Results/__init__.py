@@ -10,7 +10,6 @@ class Constants(BaseConstants):
     players_per_group = None
     num_rounds = 1
 
-
 class Subsession(BaseSubsession):
     pass
 
@@ -87,17 +86,6 @@ class Player(BasePlayer):
     email = models.StringField(label="Please enter your e-mail adress if you want to be in the random selection to be paid according to your outcomes:", blank=True)
     nickname = models.StringField(label="If you want to receive this ranking to see how good you performed relative to other participants, please enter your nickname:", blank=True)
 
-
-def get_current_trial(player: Player):
-    return Trial.filter(player=player, choice=None)[0]
-
-
-def is_finished(player: Player):
-    return player.num_completed == player.num_trials
-
-
-class Trial(ExtraModel):
-    player = models.Link(Player)
 
 # PAGES
 class Demographics(Page):

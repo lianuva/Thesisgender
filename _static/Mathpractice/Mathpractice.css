@@ -45,3 +45,6 @@ table {
     display: none;
 }
 
+button:focus {
+    outline: none !important;
+}

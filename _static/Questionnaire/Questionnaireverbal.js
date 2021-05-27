@@ -4,8 +4,6 @@ var output  = document.getElementById("slider_value");
 var xValues = ["+100%", "+90%", "+80%", "+70%", "+60%", "+50%", "+40%", "+30%", "+20%", "+10%", "0", "+10%", "+20%", "+30%", "+40%", "+50%", "+60%", "+70%", "+80%", "+90%", "+100%"];
 var yValue  = ["0", "1", "2", "3"];
 
-
-
 new Chart("myChart", {
         type: "bar",
         data: {
@@ -32,7 +30,7 @@ new Chart("myChart", {
                 xAxes: [{
                     scaleLabel: {
                         display: true,
-                        labelString: '< --                           Men                             -->    Equal     <--                         Women                        -->'
+                        labelString: '< --                                                   Men                                                 -->   Equal   <--                                               Women                                                 -->'
                     }
                 }]
             }
@@ -118,7 +116,7 @@ slider.oninput = function() {
                 xAxes: [{
                     scaleLabel: {
                         display: true,
-                        labelString: '< --                           Men                             -->    Equal     <--                         Women                        -->'
+                        labelString: '< --                                                   Men                                                 -->   Equal   <--                                               Women                                                 -->'
                     }
                 }]
             }

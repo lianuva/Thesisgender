@@ -10,15 +10,15 @@ if (round_number == 1) {
     var solution_string     = js_vars.solution_string;
     var points_string       = js_vars.points_string;
     var numberofsolutions   = js_vars.numberofsolutions;
+    //predetermine score =0
+    document.getElementById("score").value = 0;
 } else if (round_number ==2) {
     var solution_string     = js_vars.solution_string2;
     var points_string       = js_vars.points_string2;
     var numberofsolutions   = js_vars.numberofsolutions2;
+    //predetermine score =0
+    document.getElementById("score2").value = 0;
 }
-
-//predetermine score =0
-document.getElementById("score").value = 0;
-console.log(document.getElementById("score").value);
 
 //show otree timer lasy 10 sec
 $(function () {
@@ -84,43 +84,50 @@ document.addEventListener("DOMContentLoaded", function(debug=true) {
             wordcounter == wordcounter;
         }  else {    
         wordcounter ++;  
-        }    
-
-       
-
-        //check if word entered is correct
-        for (i = 0; i < numberofsolutions; i++) { 
-          
-            //get solutions from string
-            solution = solution_string.split("[")[1].split(" ")[i];
-            
-            //compare string to input
-            str1= solution.replace(/['"]+/g,'').replace(',','');
-            str2= vWords.value.toLowerCase();
-
-            //add score if a correct word is entered (trim=without spaces)
-            if (str1 === str2.trim()) {
-      
-                //get solutions from string 
-                points = points_string.split("[")[1].split(" ")[i];
-                points1 = points.replace(/['"]+/g,'').replace(',','');  
-            
-                score = +score + Number(points1); 
-
-                //if correct, remove word from string.
-                solution_string = solution_string.replace(solution, " ");
-
-                //save score
-                document.getElementById("score").value = score;
-               
-                console.log(score);
-
-            } else {
-                score = +score + 0;
-            }
-            
         }
-       
+
+        //if empty value is given, score stays the same
+        if (vWords.value == "") {
+            score = +score + 0;
+        } else if (vWords.value == " ") {
+            score = +score + 0;
+        //else the input is checked with solution
+        } else {
+            //check if word entered is correct
+            for (i = 0; i < numberofsolutions; i++) { 
+            
+                //get solutions from string
+                solution = solution_string.split("[")[1].split(" ")[i];
+                
+                //compare string to input
+                str1= solution.replace(/['"]+/g,'').replace(',','');
+                str2= vWords.value.toLowerCase();
+
+                //add score if a correct word is entered (trim=without spaces)
+                if (str1 === str2.trim()) {
+
+                    //get solutions from string 
+                    points = points_string.split("[")[1].split(" ")[i];
+                    points1 = points.replace(/['"]+/g,'').replace(',','');  
+
+                    score = +score + Number(points1); 
+
+                    //if correct, remove word from string.
+                    solution_string = solution_string.replace(solution, " ");
+
+                    //save score
+                    if (round_number == 1) {
+                        document.getElementById("score").value = score;
+                    } else if (round_number ==2) {
+                        document.getElementById("score2").value = score;
+                    }
+
+                } else {
+                    score = +score + 0;
+                }
+                
+            }
+        }
         //clear value inside inputbox
         document.getElementById('submitword').value = ''
         

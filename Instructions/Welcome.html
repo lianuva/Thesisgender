@@ -22,6 +22,9 @@ Welcome to this research study. Thank you for deciding to participate.
 This study is part of a Master's thesis of the Neuroeconomics track of Business Economics at the University of Amsterdam (UvA). 
 It is conducted by Lian Jongejan, with the supervision of Alejandro Hirmas (Phd Candidate, UvA).
 If you have any questions concerning this study, please feel free to contact Lian Jongejan (lian.jongejan@student.uva.nl). 
+
+<br><br>
+This experiment exists of two tasks, which you will have to perform twice, followed by a questionnaire.
 Participating in this study will require approximately 15 – 20 minutes. 
 
 <br><br>
@@ -39,7 +42,24 @@ If you have any questions or concerns about privacy, please contact Lian Jongeja
 Important note: it is <b>not possible</b> to participate in this study using a smartphone.
 And please do <b>not refresh</b> the page during the tasks. 
 
-{{formfields}}
+<input type="hidden" name="mobile" id="mobile"/>
+
+{{formfield 'consent'}}
+
+<script>
+  //check if mobile is used
+  if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)){
+    // true for mobile device
+    document.getElementById("mobile").value = 1;
+  } else{
+    // false for not mobile device
+    document.getElementById("mobile").value = 0;
+  }
+
+  console.log(document.getElementById("mobile").value);
+</script>
+
+
 
 </p>
     {{ next_button }}

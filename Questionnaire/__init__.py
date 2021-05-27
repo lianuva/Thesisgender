@@ -5,7 +5,6 @@ doc = """
 Questionnaire
 """
 
-
 class Constants(BaseConstants):
     name_in_url = 'questionnaire'
     players_per_group = None
@@ -17,7 +16,6 @@ class Subsession(BaseSubsession):
 
 class Group(BaseGroup):
     pass
-
 
 class Player(BasePlayer):
     mathslider = models.FloatField(blank=True) 
@@ -56,7 +54,6 @@ def creating_session(subsession: Subsession):
             round_numbers = list(range(1, Constants.num_rounds + 1))
             random.shuffle(round_numbers)
             p.participant.vars['task_rounds'] = dict(zip(Constants.tasks, round_numbers))
-
 
 # PAGES
 class Instructions(Page):

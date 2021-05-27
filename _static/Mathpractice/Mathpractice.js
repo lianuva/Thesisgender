@@ -1,14 +1,14 @@
 //set vectors
 // let numbers = js_vars.sorted_string;
-let vButtons = document.getElementsByClassName('game-button');    
+let vButtons        = document.getElementsByClassName('game-button');    
 
 //set constants
 let practicecorrect = document.getElementById("correcttables");
-let numberofclicks =0;
-let dSum =0;
-var round = 0;
+let numberofclicks  = 0;
+let dSum            = 0;
+var round           = 0;
 
-document.addEventListener("DOMContentLoaded", function(debug=true) {
+document.addEventListener("DOMContentLoaded", function(debug=true) {   
     //define variables
     let body = document.getElementsByClassName("otree-body")[0];
     
@@ -24,7 +24,6 @@ document.addEventListener("DOMContentLoaded", function(debug=true) {
             button.style.background='#696969';
             dSum = + dSum + Number(button.value);
             numberofclicks = numberofclicks +1;
-            console.log(button.value);
 
             //if 2 numbers are clicked, check if they sum to 10
             if (numberofclicks==2){

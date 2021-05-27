@@ -4,13 +4,15 @@ let vButtons        = document.getElementsByClassName('game-button');
 let round_number    = js_vars.round_number;
 let numberofclicks  = 0;
 let dSum            = 0;
+
 if (round_number == 1) {
     var round   = 0;
+    //if 0 matrices solved; score =0
+    document.getElementById("correcttables").value = 0;
 } else if (round_number == 2) {
     var round   = 15;
+    document.getElementById("correcttables2").value = 0;
 }
-//if 0 matrices solved; score =0
-document.getElementById("correcttables").value = 0;
 
 //show otree timer lasy 10 sec
 $(function () {
@@ -21,7 +23,7 @@ $(function () {
     });
 });
 
-// Hotkey for testing
+//! Hotkey for testing
   window.addEventListener("keydown", function (event) {
     if (event.defaultPrevented) {
       return; // Do nothing if the event was already processed
@@ -172,7 +174,7 @@ document.addEventListener("DOMContentLoaded", function(debug=true) {
                     if (round_number ==1){
                         document.getElementById("correcttables").value = round;
                     } else if (round_number ==2){
-                        document.getElementById("correcttables").value = (round-15);
+                        document.getElementById("correcttables2").value = (round-15);
                     }
 
                     // if (round_number ==1){
