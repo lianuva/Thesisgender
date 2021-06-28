@@ -52,7 +52,7 @@ class Player(BasePlayer):
         [5, 'Bachelors degree (Dutch: WO bachelor)'],
         [6, 'WO Masters degree (Dutch: WO master)'],
         [7, 'Doctorate (e.g., PhD, EdD)'],
-        [7, 'Other'],
+        [8, 'Other'],
         ],
         label="What is the highest level of education that you have completed?",
         ) 
@@ -91,7 +91,7 @@ class Player(BasePlayer):
         [2, 'Computer'],
         [3, 'Mobile'],
         [4, 'Tablet'],
-        [4, 'Other'],
+        [5, 'Other'],
         ],
         blank=True,
         )
